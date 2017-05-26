@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2017 10:07:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.ProxVacuna" table="prox_vacuna" schema="public" optimistic-lock="version">
+        <id name="idProxVacuna" type="int">
+            <column name="id_prox_vacuna" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="mascota" class="model.Mascota" fetch="select">
+            <column name="id_mascota" not-null="true" />
+        </many-to-one>
+        <property name="fechaProxVacuna" type="date">
+            <column name="fecha_prox_vacuna" length="13" not-null="true" />
+        </property>
+        <property name="nombreVacuna" type="string">
+            <column name="nombre_vacuna" length="60" not-null="true" />
+        </property>
+        <property name="detalles" type="string">
+            <column name="detalles" length="60" />
+        </property>
+    </class>
+</hibernate-mapping>

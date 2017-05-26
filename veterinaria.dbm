@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel>
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<database name="new_database">
+</database>
+
+<table name="mascota">
+	<schema name="public"/>
+	<position x="18" y="29"/>
+	<column name="id_mascota" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="especie" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="raza">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="sexo" not-null="true">
+		<type name="varchar"/>
+		<comment><![CDATA[H= hembra M= macho]]></comment>
+	</column>
+	<column name="color">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="fecha_nacimiento" not-null="true">
+		<type name="date"/>
+	</column>
+	<column name="id_propietario" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nro_ficha" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="mascota_pk" type="pk-constr" factor="10" table="public.mascota">
+		<columns names="id_mascota" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="cliente">
+	<schema name="public"/>
+	<position x="512" y="17"/>
+	<column name="id_cliente" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[Flia de la mascota]]></comment>
+	</column>
+	<column name="direccion">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="telefono" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="email">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="cliente_pk" type="pk-constr" factor="10" table="public.cliente">
+		<columns names="id_cliente" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vacuna">
+	<schema name="public"/>
+	<position x="438" y="149"/>
+	<column name="id_vacuna" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nombre_vacuna" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="descripcion">
+		<type name="varchar" length="60"/>
+	</column>
+	<constraint name="vacuna_pk" type="pk-constr" factor="10" table="public.vacuna">
+		<columns names="id_vacuna" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="mascota_vacuna">
+	<schema name="public"/>
+	<position x="243" y="308"/>
+	<column name="id_mascota" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="id_vacuna" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="nombre_vacuna" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="detalles_dosis" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="fecha_aplicacion" not-null="true">
+		<type name="date"/>
+	</column>
+	<column name="id_medico" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="mascota_vacuna_pk" type="pk-constr" factor="10" table="public.mascota_vacuna">
+		<columns names="id_mascota,id_vacuna" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="medico_veterinario">
+	<schema name="public"/>
+	<position x="622" y="446"/>
+	<column name="id_medico" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="apellido" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="nro_registro" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="medico_pk" type="pk-constr" factor="10" table="public.medico_veterinario">
+		<columns names="id_medico" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="prox_vacuna">
+	<schema name="public"/>
+	<position x="12" y="434"/>
+	<column name="id_prox_vacuna" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="id_mascota" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="fecha_prox_vacuna" not-null="true">
+		<type name="date"/>
+	</column>
+	<column name="nombre_vacuna" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="detalles">
+		<type name="varchar" length="60"/>
+	</column>
+	<constraint name="prox_vacuna_pk" type="pk-constr" factor="10" table="public.prox_vacuna">
+		<columns names="id_prox_vacuna" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="usuario">
+	<schema name="public"/>
+	<position x="771" y="21"/>
+	<column name="id_usuario" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="usuario" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="apellido" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="varchar" length="8"/>
+	</column>
+	<column name="id_grupo" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="usuario_pk" type="pk-constr" factor="10" table="public.usuario">
+		<columns names="id_usuario" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="grupo_usuario">
+	<schema name="public"/>
+	<position x="750" y="267"/>
+	<column name="id_grupo" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="nombre_grupo" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="grupo_pk" type="pk-constr" factor="10" table="public.grupo_usuario">
+		<columns names="id_grupo" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="mascota_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.cliente" table="public.mascota">
+	<columns names="id_propietario" ref-type="src-columns"/>
+	<columns names="id_cliente" ref-type="dst-columns"/>
+</constraint>
+<constraint name="mascota_vacuna_fk1" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.mascota" table="public.mascota_vacuna">
+	<columns names="id_mascota" ref-type="src-columns"/>
+	<columns names="id_mascota" ref-type="dst-columns"/>
+</constraint>
+<constraint name="mascota_vacuna_fk2" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.vacuna" table="public.mascota_vacuna">
+	<columns names="id_vacuna" ref-type="src-columns"/>
+	<columns names="id_vacuna" ref-type="dst-columns"/>
+</constraint>
+<constraint name="mascota_vacuna_fk3" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.medico_veterinario" table="public.mascota_vacuna">
+	<columns names="id_medico" ref-type="src-columns"/>
+	<columns names="id_medico" ref-type="dst-columns"/>
+</constraint>
+<constraint name="prox_vacuna" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.mascota" table="public.prox_vacuna">
+	<columns names="id_mascota" ref-type="src-columns"/>
+	<columns names="id_mascota" ref-type="dst-columns"/>
+</constraint>
+<constraint name="usuario_fk" type="fk-constr"	 comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.grupo_usuario" table="public.usuario">
+	<columns names="id_grupo" ref-type="src-columns"/>
+	<columns names="id_grupo" ref-type="dst-columns"/>
+</constraint>
+<relationship name="rel_mascota_cliente" type="relfk"
+	 src-table="public.mascota"
+	 dst-table="public.cliente"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_mascota_vacuna_mascota" type="relfk"
+	 src-table="public.mascota_vacuna"
+	 dst-table="public.mascota"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_mascota_vacuna_vacuna" type="relfk"
+	 src-table="public.mascota_vacuna"
+	 dst-table="public.vacuna"
+	 src-required="true" dst-required="true">
+	<label ref-type="name-label">
+		<position x="122.476" y="-8.54855"/>
+	</label>
+</relationship>
+
+<relationship name="rel_mascota_vacuna_medico_veterinario" type="relfk"
+	 src-table="public.mascota_vacuna"
+	 dst-table="public.medico_veterinario"
+	 src-required="true" dst-required="true">
+	<label ref-type="name-label">
+		<position x="-72.0243" y="6.45145"/>
+	</label>
+</relationship>
+
+<relationship name="rel_prox_vacuna_mascota" type="relfk"
+	 src-table="public.prox_vacuna"
+	 dst-table="public.mascota"
+	 src-required="true" dst-required="true"/>
+
+<relationship name="rel_usuario_grupo_usuario" type="relfk"
+	 src-table="public.usuario"
+	 dst-table="public.grupo_usuario"
+	 src-required="true" dst-required="true"/>
+
+</dbmodel>

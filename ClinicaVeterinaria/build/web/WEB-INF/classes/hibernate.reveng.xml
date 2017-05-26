@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="veterinaria" match-schema="public"/>
+  <table-filter match-name="cliente"/>
+  <table-filter match-name="mascota_vacuna"/>
+  <table-filter match-name="mascota"/>
+  <table-filter match-name="usuario"/>
+  <table-filter match-name="vacuna"/>
+  <table-filter match-name="medico_veterinario"/>
+  <table-filter match-name="grupo_usuario"/>
+  <table-filter match-name="prox_vacuna"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2017 10:07:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Usuario" table="usuario" schema="public" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="grupoUsuario" class="model.GrupoUsuario" fetch="select">
+            <column name="id_grupo" not-null="true" />
+        </many-to-one>
+        <property name="usuario" type="string">
+            <column name="usuario" length="20" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="20" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="8" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

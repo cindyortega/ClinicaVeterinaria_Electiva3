@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2017 10:07:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.MascotaVacuna" table="mascota_vacuna" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="model.MascotaVacunaId">
+            <key-property name="idMascota" type="int">
+                <column name="id_mascota" />
+            </key-property>
+            <key-property name="idVacuna" type="int">
+                <column name="id_vacuna" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="mascota" class="model.Mascota" update="false" insert="false" fetch="select">
+            <column name="id_mascota" not-null="true" />
+        </many-to-one>
+        <many-to-one name="medicoVeterinario" class="model.MedicoVeterinario" fetch="select">
+            <column name="id_medico" not-null="true" />
+        </many-to-one>
+        <many-to-one name="vacuna" class="model.Vacuna" update="false" insert="false" fetch="select">
+            <column name="id_vacuna" not-null="true" />
+        </many-to-one>
+        <property name="nombreVacuna" type="string">
+            <column name="nombre_vacuna" length="30" not-null="true" />
+        </property>
+        <property name="detallesDosis" type="string">
+            <column name="detalles_dosis" length="60" not-null="true" />
+        </property>
+        <property name="fechaAplicacion" type="date">
+            <column name="fecha_aplicacion" length="13" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

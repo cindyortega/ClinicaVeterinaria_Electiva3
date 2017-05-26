@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Agregar Mascota</title>
+    </h:head>
+    
+    <h:body>
+        <h:form>
+            <p:fieldset legend="Agregar Mascota">
+                <h:panelGrid columns="2">
+                    <h:outputText value="ID Mascota"/>
+                    <h:inputText value="#{mascotaBean.idMascota}"/>
+                    
+                    <h:outputText value="Cliente"/>
+                    
+                    
+                    <h:outputText value="Nombre"/>
+                    <h:inputText value="#{mascotaBean.nombre}"/>
+                    
+                    <h:outputText value="Especie"/>
+                    <h:inputText value="#{mascotaBean.especie}"/>
+                    
+                    <h:outputText value="Raza"/>
+                    <h:inputText value="#{mascotaBean.raza}"/>
+                    
+                    <h:outputText value="Sexo"/>
+                    <p:selectOneRadio>
+                        <f:selectItem itemValue="M" itemLabel="MACHO"/>
+                        <f:selectItem itemValue="H" itemLabel="HEMBRA"/>       
+                    </p:selectOneRadio>
+                    
+                    <h:outputText value="Color"/>
+                    <h:inputText value="#{mascotaBean.color}"/>
+                    
+                    <h:outputText value="Fecha de Nacimiento"/>
+                    <p:calendar locale="es"/>
+                    
+                    <h:outputText value="Nro. Ficha"/>
+                    <h:inputText value="#{mascotaBean.nroFicha}"/>
+                    
+                </h:panelGrid>
+                
+                <p:commandButton icon="ui-icon-check" value="Agregar"/>
+            </p:fieldset>
+        </h:form>
+    </h:body>
+    <h:outputScript library="js" name="spanishLocale.js"/>
+    <!Hasta el min 12 del video https://www.youtube.com/watch?v=tPih4GKUSAk&index=6&list=PLvimn1Ins-41Dn6vhYzB0Kv90_2eFIdXG
+    !>
+</html>
+
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/05/2017 10:07:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Mascota" table="mascota" schema="public" optimistic-lock="version">
+        <id name="idMascota" type="int">
+            <column name="id_mascota" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cliente" class="model.Cliente" fetch="select">
+            <column name="id_propietario" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="20" not-null="true" />
+        </property>
+        <property name="especie" type="string">
+            <column name="especie" length="30" not-null="true" />
+        </property>
+        <property name="raza" type="string">
+            <column name="raza" length="30" />
+        </property>
+        <property name="sexo" type="string">
+            <column name="sexo" length="1" not-null="true" />
+        </property>
+        <property name="color" type="string">
+            <column name="color" length="20" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fecha_nacimiento" length="13" not-null="true" />
+        </property>
+        <property name="nroFicha" type="int">
+            <column name="nro_ficha" not-null="true" />
+        </property>
+        <set name="mascotaVacunas" table="mascota_vacuna" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mascota" not-null="true" />
+            </key>
+            <one-to-many class="model.MascotaVacuna" />
+        </set>
+        <set name="proxVacunas" table="prox_vacuna" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_mascota" not-null="true" />
+            </key>
+            <one-to-many class="model.ProxVacuna" />
+        </set>
+    </class>
+</hibernate-mapping>
