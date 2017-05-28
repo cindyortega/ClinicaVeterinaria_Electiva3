@@ -10,47 +10,67 @@
     
     <h:body>
         <h:form>
+            <!--Para mostrar mensajes en los campoc requeridos-->
+            <p:messages id="mensaje" autoUpdate="false" />
+            
             <p:fieldset legend="Agregar Mascota">
-                <h:panelGrid columns="2">
-                    <h:outputText value="ID Mascota"/>
-                    <h:inputText value="#{mascotaBean.idMascota}"/>
+                <h:panelGrid columns="3" id="pgAddMascota">
+                    <p:outputLabel for="txtId" value="ID Mascota"/>
+                    <p:inputText id="txtId" value="#{mascotaBean.idMascota}" required="true"
+                                 requiredMessage="Campo Requerido"/>
+                    <p:message for="txtId"/>
                     
-                    <h:outputText value="Cliente"/>
+                    <p:outputLabel for="txtCliente" value="Cliente"/>
+                    <p:inputText id="txtCliente" value="#{mascotaBean.cliente}" required="true"
+                                 requiredMessage="Campo Requerido"/>
+                    <p:message for="txtCliente"/>
                     
+                    <p:outputLabel for="txtNombre" value="Nombre"/>
+                    <p:inputText id="txtNombre" value="#{mascotaBean.nombre}" required="true"
+                                 requiredMessage="Campo Requerido"/>
+                    <p:message for="txtNombre"/>
                     
-                    <h:outputText value="Nombre"/>
-                    <h:inputText value="#{mascotaBean.nombre}"/>
+                    <p:outputLabel for="txtEspecie" value="Especie" />
+                    <p:inputText id="txtEspecie" value="#{mascotaBean.especie}" required="true"
+                                 requiredMessage="Campo Requerido"/>
+                    <p:message for="txtEspecie"/>
                     
-                    <h:outputText value="Especie"/>
-                    <h:inputText value="#{mascotaBean.especie}"/>
+                    <p:outputLabel for="txtRaza" value="Raza"/>
+                    <p:inputText id="txtRaza" value="#{mascotaBean.raza}"/>
+                    <p:message for="txtRaza"/>
                     
-                    <h:outputText value="Raza"/>
-                    <h:inputText value="#{mascotaBean.raza}"/>
-                    
-                    <h:outputText value="Sexo"/>
-                    <p:selectOneRadio>
+                    <p:outputLabel for="rdbSexo" value="Sexo"/>
+                    <p:selectOneRadio id="rdbSexo" value="#{mascotaBean.sexo}" required="true"
+                                      requiredMessage="Campo Requerido">
                         <f:selectItem itemValue="M" itemLabel="MACHO"/>
                         <f:selectItem itemValue="H" itemLabel="HEMBRA"/>       
                     </p:selectOneRadio>
+                    <p:message for="rdbSexo"/>
                     
-                    <h:outputText value="Color"/>
-                    <h:inputText value="#{mascotaBean.color}"/>
+                    <p:outputLabel for="txtColor" value="Color"/>
+                    <p:inputText id="txtColor" value="#{mascotaBean.color}"/>
+                    <p:message for="txtColor"/>
                     
-                    <h:outputText value="Fecha de Nacimiento"/>
-                    <p:calendar locale="es"/>
+                    <p:outputLabel for="txtFecha" value="Fecha de Nacimiento"/>
+                    <p:calendar id="txtFecha" value="#{mascotaBean.fechaNacimiento}" locale="es"
+                                required="true" requiredMessage="Campo Requerido"/>
+                    <p:message for="txtFecha"/>
                     
-                    <h:outputText value="Nro. Ficha"/>
-                    <h:inputText value="#{mascotaBean.nroFicha}"/>
+                    <p:outputLabel for="txtFicha" value="Nro. Ficha"/>
+                    <p:inputText id="txtFicha" value="#{mascotaBean.nroFicha}" required="true"
+                                 requiredMessage="Campo Requerido"/>
+                    <p:message for="txtFicha"/>
+                    
+                    <h:column />
+                    <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMascota"/>
                     
                 </h:panelGrid>
                 
-                <p:commandButton icon="ui-icon-check" value="Agregar"/>
             </p:fieldset>
         </h:form>
     </h:body>
     <h:outputScript library="js" name="spanishLocale.js"/>
-    <!Hasta el min 12 del video https://www.youtube.com/watch?v=tPih4GKUSAk&index=6&list=PLvimn1Ins-41Dn6vhYzB0Kv90_2eFIdXG
-    !>
+   
 </html>
 
 

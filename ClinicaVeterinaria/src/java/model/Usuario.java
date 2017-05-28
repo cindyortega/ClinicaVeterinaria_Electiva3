@@ -71,6 +71,37 @@ public class Usuario  implements java.io.Serializable {
         this.password = password;
     }
 
+    //desde aca le agregue
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + this.idUsuario;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Usuario other = (Usuario) obj;
+        if (this.idUsuario != other.idUsuario) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "idUsuario=" + idUsuario + '}';
+    }
+
 
 
 

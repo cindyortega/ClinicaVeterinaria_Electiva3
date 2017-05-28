@@ -7,6 +7,7 @@ package controller;
 
 import model.HibernateUtil;
 import model.Usuario;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -34,6 +35,23 @@ public class UsuarioController {
             session.close();
         }
     }
+     
+    public Usuario verificarDatos(String usuario, String password){
+        Usuario us = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            String hql = "FROM usuario WHERE usuario = " + usuario
+                    + "AND password = " + password + ";";
+            Query query = session.createQuery(hql);
+            
+            if(query.list().isEmpty()) {
+                us = (Usuario) query.list().get(0);
+            }
+        } catch (Exception e){
+            throw e;
+        }
+        return us;
+    }
     
     public void deleteUsuario (int idUsuario) {
         
@@ -46,4 +64,5 @@ public class UsuarioController {
     public Usuario getUsuarioByID (int idUsuario) {
         return null;
     }
+
 }
