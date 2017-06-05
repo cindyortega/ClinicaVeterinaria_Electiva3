@@ -6,71 +6,84 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Agregar Mascota</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
-    
+
     <h:body>
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:10px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
         <h:form>
             <!--Para mostrar mensajes en los campoc requeridos-->
             <p:messages id="mensaje" autoUpdate="false" />
-            
-            <p:fieldset legend="Agregar Mascota">
-                <h:panelGrid columns="3" id="pgAddMascota">
-                    <p:outputLabel for="txtId" value="ID Mascota"/>
-                    <p:inputText id="txtId" value="#{mascotaBean.idMascota}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtId"/>
-                    
-                    <p:outputLabel for="txtCliente" value="Cliente"/>
-                    <p:inputText id="txtCliente" value="#{mascotaBean.cliente}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtCliente"/>
-                    
-                    <p:outputLabel for="txtNombre" value="Nombre"/>
-                    <p:inputText id="txtNombre" value="#{mascotaBean.nombre}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtNombre"/>
-                    
-                    <p:outputLabel for="txtEspecie" value="Especie" />
-                    <p:inputText id="txtEspecie" value="#{mascotaBean.especie}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtEspecie"/>
-                    
-                    <p:outputLabel for="txtRaza" value="Raza"/>
-                    <p:inputText id="txtRaza" value="#{mascotaBean.raza}"/>
-                    <p:message for="txtRaza"/>
-                    
-                    <p:outputLabel for="rdbSexo" value="Sexo"/>
-                    <p:selectOneRadio id="rdbSexo" value="#{mascotaBean.sexo}" required="true"
-                                      requiredMessage="Campo Requerido">
-                        <f:selectItem itemValue="M" itemLabel="MACHO"/>
-                        <f:selectItem itemValue="H" itemLabel="HEMBRA"/>       
-                    </p:selectOneRadio>
-                    <p:message for="rdbSexo"/>
-                    
-                    <p:outputLabel for="txtColor" value="Color"/>
-                    <p:inputText id="txtColor" value="#{mascotaBean.color}"/>
-                    <p:message for="txtColor"/>
-                    
-                    <p:outputLabel for="txtFecha" value="Fecha de Nacimiento"/>
-                    <p:calendar id="txtFecha" value="#{mascotaBean.fechaNacimiento}" locale="es"
-                                required="true" requiredMessage="Campo Requerido"/>
-                    <p:message for="txtFecha"/>
-                    
-                    <p:outputLabel for="txtFicha" value="Nro. Ficha"/>
-                    <p:inputText id="txtFicha" value="#{mascotaBean.nroFicha}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtFicha"/>
-                    
-                    <h:column />
-                    <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMascota"/>
-                    
-                </h:panelGrid>
-                
-            </p:fieldset>
+            <div align="center">
+                <p:fieldset legend="Agregar Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgAddMascota">
+                        <p:outputLabel for="txtId" value="ID Mascota"/>
+                        <p:inputText id="txtId" value="#{mascotaBean.idMascota}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtCliente" value="Cliente"/>
+                        <p:inputText id="txtCliente" value="#{mascotaBean.cliente}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtCliente"/>
+
+                        <p:outputLabel for="txtNombre" value="Nombre"/>
+                        <p:inputText id="txtNombre" value="#{mascotaBean.nombre}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtNombre"/>
+
+                        <p:outputLabel for="txtEspecie" value="Especie" />
+                        <p:inputText id="txtEspecie" value="#{mascotaBean.especie}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtEspecie"/>
+
+                        <p:outputLabel for="txtRaza" value="Raza"/>
+                        <p:inputText id="txtRaza" value="#{mascotaBean.raza}"/>
+                        <p:message for="txtRaza"/>
+
+                        <p:outputLabel for="rdbSexo" value="Sexo"/>
+                        <p:selectOneRadio id="rdbSexo" value="#{mascotaBean.sexo}" required="true"
+                                          requiredMessage="Campo Requerido">
+                            <f:selectItem itemValue="M" itemLabel="MACHO"/>
+                            <f:selectItem itemValue="H" itemLabel="HEMBRA"/>       
+                        </p:selectOneRadio>
+                        <p:message for="rdbSexo"/>
+
+                        <p:outputLabel for="txtColor" value="Color"/>
+                        <p:inputText id="txtColor" value="#{mascotaBean.color}"/>
+                        <p:message for="txtColor"/>
+
+                        <p:outputLabel for="txtFecha" value="Fecha de Nacimiento"/>
+                        <p:calendar id="txtFecha" value="#{mascotaBean.fechaNacimiento}" locale="es"
+                                    required="true" requiredMessage="Campo Requerido"/>
+                        <p:message for="txtFecha"/>
+
+                        <p:outputLabel for="txtFicha" value="Nro. Ficha"/>
+                        <p:inputText id="txtFicha" value="#{mascotaBean.nroFicha}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtFicha"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMascota"/>
+
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </div>
         </h:form>
     </h:body>
     <h:outputScript library="js" name="spanishLocale.js"/>
-   
+
 </html>
 
 

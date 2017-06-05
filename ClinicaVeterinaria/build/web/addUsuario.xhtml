@@ -6,62 +6,75 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Registrar Usuario</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
         <h:form>
             <!--Para mostrar mensajes en los campoc requeridos
-            en vez de p:messages se puede poner p:growl para que muestre los mensajes de arriba
+              en vez de p:messages se puede poner p:growl para que muestre los mensajes de arriba
             como uuna notificacion y desaparezca automaticamente en unos segundos-->
             <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" />
-            
-            <p:fieldset legend="Registrar Usuario">
-                <h:panelGrid columns="3" id="pgRegistrar">
-                    <p:outputLabel for="txtId" value="ID Usuario"/>
-                    <h:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtId"/>
-                    
-                    <p:outputLabel for="cboGrupoUsuario" value="Grupo Usuario"/>
-                    <p:selectOneMenu id="cboGrupoUsuario" value="#{usuarioBean.grupoUsuario}" 
-                                     required="true" requiredMessage="Campo Requerido">
-                        <f:selectItem itemValue="1" itemLabel="Medico"/>
-                        <f:selectItem itemValue="2" itemLabel="Recepcionista"/>
-                    </p:selectOneMenu>
-                    <p:message for="cboGrupoUsuario"/>
-                    
-                    <p:outputLabel for="txtUsuario" value="Usuario"/>
-                    <h:inputText id="txtUsuario" value="#{usuarioBean.usuario}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtUsuario"/>
-                    
-                    <p:outputLabel for="txtNombre" value="Nombre"/>
-                    <h:inputText id="txtNombre" value="#{usuarioBean.nombre}" required="true"
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtNombre"/>
-                    
-                    <p:outputLabel for="txtApellido" value="Apellido"/>
-                    <h:inputText id="txtApellido" value="#{usuarioBean.apellido}" required="true" 
-                                 requiredMessage="Campo Requerido"/>
-                    <p:message for="txtApellido"/>
-                    
-                    <p:outputLabel for="pass1" value="Contraseña"/>
-                    <p:password id="pass1" value="#{usuarioBean.password}" 
-                                validatorMessage="No coinciden las contraseñas."
-                                weakLabel="Débil" goodLabel="Bueno" strongLabel="Fuerte"
-                                match="pass2" feedback="true" promptLabel="Ingrese la contraseña."
-                                required="true" requiredMessage="Campo Requerido" />
-                    <p:message for="pass1"/>
-                    
-                    <p:outputLabel for="pass2" value="Repetir Contraseña"/>
-                    <p:password id="pass2" required="true" requiredMessage="Campo requerido."/>
-                    <p:message for="pass2"/>
-                    
-                    <h:column />
-                    <p:commandButton icon="ui-icon-check" value="Registrar" update="pgRegistrar, mensaje"
-                                 actionListener="#{usuarioBean.addUsuario()}"/>
-                </h:panelGrid>
-                
-            </p:fieldset>
+            <div align="center">
+                <p:fieldset legend="Registrar Usuario" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgRegistrar">
+                        <p:outputLabel for="txtId" value="ID Usuario"/>
+                        <h:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="cboGrupoUsuario" value="Grupo Usuario"/>
+                        <p:selectOneMenu id="cboGrupoUsuario" value="#{usuarioBean.grupoUsuario}" 
+                                         required="true" requiredMessage="Campo Requerido">
+                            <f:selectItem itemValue="1" itemLabel="Medico"/>
+                            <f:selectItem itemValue="2" itemLabel="Recepcionista"/>
+                        </p:selectOneMenu>
+                        <p:message for="cboGrupoUsuario"/>
+
+                        <p:outputLabel for="txtUsuario" value="Usuario"/>
+                        <h:inputText id="txtUsuario" value="#{usuarioBean.usuario}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtUsuario"/>
+
+                        <p:outputLabel for="txtNombre" value="Nombre"/>
+                        <h:inputText id="txtNombre" value="#{usuarioBean.nombre}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtNombre"/>
+
+                        <p:outputLabel for="txtApellido" value="Apellido"/>
+                        <h:inputText id="txtApellido" value="#{usuarioBean.apellido}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtApellido"/>
+
+                        <p:outputLabel for="pass1" value="Contraseña"/>
+                        <p:password id="pass1" value="#{usuarioBean.password}" 
+                                    validatorMessage="No coinciden las contraseñas."
+                                    weakLabel="Débil" goodLabel="Bueno" strongLabel="Fuerte"
+                                    match="pass2" feedback="true" promptLabel="Ingrese la contraseña."
+                                    required="true" requiredMessage="Campo Requerido" />
+                        <p:message for="pass1"/>
+
+                        <p:outputLabel for="pass2" value="Repetir Contraseña"/>
+                        <p:password id="pass2" required="true" requiredMessage="Campo requerido."/>
+                        <p:message for="pass2"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-check" value="Registrar" update="pgRegistrar, mensaje"
+                                         actionListener="#{usuarioBean.addUsuario()}"/>
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </div>
         </h:form>
     </h:body>
 </html>

@@ -5,20 +5,33 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Clinica Veterinaria</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-         <!--ahora solo se va a ver si se inicia sesion porque esta renderizado-->
-        <h:form rendered="#{usuarioBean.verificarSesion()}">
-            <p:fieldset legend="Menu">
-                <p:link outcome="addUsuario" value="Registrar Usuario"/> <br/>
-                <p:link outcome="addCliente" value="Agregar Cliente" /> <br/>
-                <p:link outcome="addMascota" value="Agregar Mascota" /> <br/>
-            </p:fieldset>
-            
-            <!--ubicar bien este boton-->
-            <p:commandButton value="Cerrar Sesión" action="#{usuarioBean.cerrarSesion()}"/>
-        </h:form>
-        
+         <!--ahora solo se va a ver si se inicia sesion porque esta renderizado rendered="#{usuarioBean.verificarSesion()}"-->
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <div align="center">
+            <h:form>
+                <p:fieldset legend="Menu" style="width:350pt">
+                    <p:link outcome="addUsuario" value="Registrar Usuario"/> <br/>
+                    <p:link outcome="addCliente" value="Agregar Cliente" /> <br/>
+                    <p:link outcome="addMascota" value="Agregar Mascota" /> <br/>
+                    <br></br>
+                    <p:commandButton value="Cerrar Sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                </p:fieldset>
+
+            </h:form>
+        </div>
     </h:body>
 </html>
 

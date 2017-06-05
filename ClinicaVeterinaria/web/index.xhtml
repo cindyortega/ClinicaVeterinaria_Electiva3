@@ -6,11 +6,15 @@
     <h:head>
         <title>Clinica Veterinaria</title>
     </h:head>
-    <h:body>
-        <h:form>
+    <h:body> 
+
+        <h:form class="form-signin">
             <p:messages autoUpdate="true" />
-            <p:panel header="Clinica Veterinaria" >
-                <p:fieldset legend="Iniciar Sesión">
+            <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+                <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+            </p:panel>
+            <div align="center">
+                <p:fieldset legend="Iniciar Sesión" style="width:350pt">
                     <h:panelGrid columns="3">
                         <p:outputLabel for="txtUsuario" value="Usuario: " />
                         <p:inputText id="txtUsuario" value="#{usuarioBean.usuario}" required="true"
@@ -26,9 +30,9 @@
                         <p:commandButton icon="ui-icon-key" value="Iniciar Sesión"
                                          action="#{usuarioBean.verificarDatos()}"/>
                     </h:panelGrid>
-                    
+
                 </p:fieldset>
-            </p:panel>
+            </div>
             <p:separator />
         </h:form>
         <!--Desde aca borrar despues
@@ -36,6 +40,7 @@
         Contraseña: <h:inputSecret value="#{usuarioBean.password}"/><br/>
         <h:commandButton value="submit" type="submit" action="usuarioBean.checkLogin"/><br/> 
         <!hasta aca -->
+        <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/image8.png" width="1200"/>
     </h:body>
 </html>
 
