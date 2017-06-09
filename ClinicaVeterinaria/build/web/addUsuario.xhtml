@@ -29,7 +29,7 @@
                 <p:fieldset legend="Registrar Usuario" style="width:350pt">
                     <h:panelGrid columns="3" id="pgRegistrar">
                         <p:outputLabel for="txtId" value="ID Usuario"/>
-                        <h:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
+                        <p:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtId"/>
 
@@ -42,17 +42,17 @@
                         <p:message for="cboGrupoUsuario"/>
 
                         <p:outputLabel for="txtUsuario" value="Usuario"/>
-                        <h:inputText id="txtUsuario" value="#{usuarioBean.usuario}" required="true"
+                        <p:inputText id="txtUsuario" value="#{usuarioBean.usuario}" required="true"
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtUsuario"/>
 
                         <p:outputLabel for="txtNombre" value="Nombre"/>
-                        <h:inputText id="txtNombre" value="#{usuarioBean.nombre}" required="true"
+                        <p:inputText id="txtNombre" value="#{usuarioBean.nombre}" required="true"
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtNombre"/>
 
                         <p:outputLabel for="txtApellido" value="Apellido"/>
-                        <h:inputText id="txtApellido" value="#{usuarioBean.apellido}" required="true"
+                        <p:inputText id="txtApellido" value="#{usuarioBean.apellido}" required="true"
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtApellido"/>
 

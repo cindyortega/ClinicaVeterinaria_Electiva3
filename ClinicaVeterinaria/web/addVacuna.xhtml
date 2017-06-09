@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Agregar Vacuna</title>
+    </h:head>
+    <h:body>
+         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" />
+            <div align="center">
+                <p:fieldset legend="Agregar Vacuna" style="width:300pt">
+                    <h:panelGrid columns="3" id="pgAddMascotaVacunas">
+                        <p:outputLabel for="txtId" value="ID Vacuna: "/>
+                        <p:inputText id="txtId" value="#{vacunaBean.idVacuna}" required="true" 
+                                     requiredMessage="Campo Requerido."/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtNombreVacuna" value="Nombre Vacuna: "/>
+                        <p:inputText id="txtNombreVacuna" value="#{vacunaBean.nombreVacuna}" required="true" 
+                                     requiredMessage="Campo Requerido."/>
+                        <p:message for="txtNombreVacuna"/>
+
+                        <p:outputLabel for="txtDescripcion" value="Descripcion: " />
+                        <p:inputText id="txtDescripcion" value="#{vacunaBean.descripcion}" required="true" 
+                                     requiredMessage="Campo Requerido."/>
+                        <p:message for="txtDescripcion"/>
+                        
+                        <p:outputLabel for="txtMascotaVacunas" value="Mascota Vacunas: "/>
+                        <p:inputText id="txtMascotaVacunas" value="#{vacunaBean.mascotaVacunas}" required="false"/>
+                        <p:message for="txtMascotaVacunas"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-check" value="Guardar" update="pgAddMascotaVacunas"
+                                         actionListener="#{vacunaBean.addVacuna()}"/>
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

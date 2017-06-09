@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--Menu para Grupo de Usuario 2 - Recepcionista -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Clinica Veterinaria</title>
+    </h:head>
+    <h:body>
+        <!--ahora solo se va a ver si se inicia sesion porque esta renderizado rendered="#{usuarioBean.verificarSesion()}"-->
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <div >
+            <h:form>
+                <p:fieldset legend="Menú" style="width:350pt">
+                    <p:panel header="Agregar">
+                        <p:link outcome="addUsuario" value="Registrar Usuario"/> <br/>
+                        <p:link outcome="addCliente" value="Agregar Cliente" /> <br/>
+                        <p:link outcome="addMascota" value="Agregar Mascota" /> <br/>
+                        <p:link outcome="addMedicoVeterinario" value="Agregar Medico Veterinario" /> <br/>
+                        <p:link outcome="addVacuna" value="Agregar Vacuna" />
+                    </p:panel>
+                    
+                    <br></br>
+                    
+                    <p:panel header="Buscar">
+                        
+                    </p:panel>
+                    
+                    <br></br>
+                    
+                    <p:commandButton value="Cerrar Sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                </p:fieldset>
+
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

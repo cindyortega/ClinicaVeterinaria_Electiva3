@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Agregar Médico Veterinario</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <!--Para mostrar mensajes en los campoc requeridos-->
+            <p:messages id="mensaje" autoUpdate="false" />
+            <div align="center">
+                <p:fieldset legend="Agregar Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgAddMedico">
+                        <p:outputLabel for="txtId" value="ID Médico Veterinario: "/>
+                        <p:inputText id="txtId" value="#{medicoVeterinarioBean.idMedico}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtNombre" value="Nombre: "/>
+                        <p:inputText id="txtNombre" value="#{medicoVeterinarioBean.nombre}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtNombre"/>
+
+                        <p:outputLabel for="txtApellido" value="Apellido: " />
+                        <p:inputText id="txtApellido" value="#{medicoVeterinarioBean.apellido}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtApellido"/>
+
+                        <p:outputLabel for="txtNroRegistro" value="Registro N°: "/>
+                        <p:inputText id="txtNroRegistro" value="#{medicoVeterinarioBean.nroRegistro}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtNroRegistro"/>
+
+                        <p:outputLabel for="txtMascotaVacuna" value="Mascota Vacuna: "/>
+                        <p:inputText id="txtMascotaVacuna" value="#{medicoVeterinarioBean.mascotaVacunas}" required="false"/>
+                        <p:message for="txtMascotaVacuna"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMedico"
+                                         actionListener="#{medicoVeterinarioBean.addMedicoVeterinario()}"/>
+
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

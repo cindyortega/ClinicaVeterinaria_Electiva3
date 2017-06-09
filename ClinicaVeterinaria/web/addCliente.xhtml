@@ -49,7 +49,8 @@
                         <p:message for="txtEmail"/>
 
                         <h:column />
-                        <p:commandButton icon="ui-icon-check" value="Guardar" update="pgAddCliente"/>
+                        <p:commandButton icon="ui-icon-check" value="Guardar" update="pgAddCliente"
+                                         actionListener="#{clienteBean.addCliente()}"/>
 
                     </h:panelGrid>
                 </p:fieldset>

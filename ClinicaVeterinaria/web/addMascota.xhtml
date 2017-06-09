@@ -74,7 +74,8 @@
                         <p:message for="txtFicha"/>
 
                         <h:column />
-                        <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMascota"/>
+                        <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMascota"
+                                         actionListener="#{mascotaBean.addMascota()}"/>
 
                     </h:panelGrid>
 
