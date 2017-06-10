@@ -5,9 +5,18 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Agregar Vacuna</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
             <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
         </p:panel>
         <h:form>
@@ -29,7 +38,7 @@
                         <p:inputText id="txtDescripcion" value="#{vacunaBean.descripcion}" required="true" 
                                      requiredMessage="Campo Requerido."/>
                         <p:message for="txtDescripcion"/>
-                        
+
                         <p:outputLabel for="txtMascotaVacunas" value="Mascota Vacunas: "/>
                         <p:inputText id="txtMascotaVacunas" value="#{vacunaBean.mascotaVacunas}" required="false"/>
                         <p:message for="txtMascotaVacunas"/>

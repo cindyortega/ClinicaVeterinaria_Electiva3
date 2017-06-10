@@ -5,6 +5,15 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Agregar Médico Veterinario</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
@@ -14,7 +23,7 @@
             <!--Para mostrar mensajes en los campoc requeridos-->
             <p:messages id="mensaje" autoUpdate="false" />
             <div align="center">
-                <p:fieldset legend="Agregar Mascota" style="width:350pt">
+                <p:fieldset legend="Agregar Medico Veterinario" style="width:350pt">
                     <h:panelGrid columns="3" id="pgAddMedico">
                         <p:outputLabel for="txtId" value="ID Médico Veterinario: "/>
                         <p:inputText id="txtId" value="#{medicoVeterinarioBean.idMedico}" required="true"
