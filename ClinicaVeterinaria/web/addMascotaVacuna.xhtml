@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Agregar Vacuna a Mascota</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:10px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <!--Para mostrar mensajes en los campos requeridos-->
+            <p:messages id="mensaje" autoUpdate="false" />
+            <div align="center">
+                <p:fieldset legend="Agregar Vacuna a Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgAddMascotaVacuna">
+                        <p:outputLabel for="txtId" value="ID Vacuna a Mascota"/>
+                        <p:inputText id="txtId" value="#{mascotaVacunaBean.id}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtMascotaVacuna" value="Nombre de la Mascota"/>
+                        <p:inputText id="txtMascotaVacuna" value="#{mascotaVacunaBean.mascota}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtMascotaVacuna"/>
+
+                        <p:outputLabel for="txtMedicoVeterinario" value="Medico Veterinario"/>
+                        <p:inputText id="txtMedicoVeterinario" value="#{mascotaVacunaBean.medicoVeterinario}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtMedicoVeterinario"/>
+
+                        <p:outputLabel for="txtVacuna" value="ID Vacuna" />
+                        <p:inputText id="txtVacuna" value="#{mascotaVacunaBean.vacuna}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtVacuna"/>
+
+                        <p:outputLabel for="txtNombreVacuna" value="Nombre de la Vacuna"/>
+                        <p:inputText id="txtNombreVacuna" value="#{mascotaVacunaBean.nombreVacuna}" 
+                                     required="true" requiredMessage="Campo Requerido"/>
+                        <p:message for="txtNombreVacuna"/>
+
+                        <p:outputLabel for="txtDetallesDosis" value="Detalle de la Dosis"/>
+                        <p:inputText id="txtDetallesDosis" value="#{mascotaVacunaBean.detallesDosis}"
+                                     required="true" requiredMessage="Campo Requerido"/>
+                        <p:message for="txtDetallesDosis"/>
+
+                        <p:outputLabel for="txtFecha" value="Fecha de Aplicación"/>
+                        <p:calendar id="txtFecha" value="#{mascotaVacunaBean.fechaAplicacion}" locale="es"
+                                    required="true" requiredMessage="Campo Requerido"/>
+                        <p:message for="txtFecha"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-check" value="Guardar" update="pgAddMascotaVacuna"
+                                         actionListener="#{mascotaVacunaBean.addMascotaVacuna()}"/>
+
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </div>
+        </h:form>
+    </h:body>
+    <h:outputScript library="js" name="spanishLocale.js"/>
+</html>
+

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Agregar Próxima Vacuna a Mascota</title>
+    </h:head>
+    <h:body>
+         <p:panel header="Clinica Veterinaria" style="margin-bottom:10px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <!--Para mostrar mensajes en los campos requeridos-->
+            <p:messages id="mensaje" autoUpdate="false" />
+            <div align="center">
+                <p:fieldset legend="Agregar Próxima Vacuna a Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgAddProxVacuna">
+                        <p:outputLabel for="txtId" value="ID Próxima Vacuna"/>
+                        <p:inputText id="txtId" value="#{proxVacunaBean.idProxVacuna}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtMascota" value="Mascota"/>
+                        <p:inputText id="txtMascota" value="#{proxVacunaBean.mascota}" required="true"
+                                     requiredMessage="Campo Requerido"/>
+                        <p:message for="txtMascota" />
+                        
+                        <p:outputLabel for="txtFecha" value="Fecha de Próxima Vacuna"/>
+                        <p:calendar id="txtFecha" value="#{proxVacunaBean.fechaProxVacuna}" locale="es"
+                                    required="true" requiredMessage="Campo Requerido"/>
+                        <p:message for="txtFecha"/>
+
+                        <p:outputLabel for="txtNombreVacuna" value="Nombre de la Vacuna"/>
+                        <p:inputText id="txtNombreVacuna" value="#{proxVacunaBean.nombreVacuna}" 
+                                     required="true" requiredMessage="Campo Requerido"/>
+                        <p:message for="txtNombreVacuna"/>
+
+                        <p:outputLabel for="txtDetalles" value="Detalles"/>
+                        <p:inputText id="txtDetalles" value="#{proxVacunaBean.detalles}"
+                                     required="false" />
+                        <p:message for="txtDetalles"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-check" value="Guardar" update="pgAddProxVacuna"
+                                         actionListener="#{proxVacunaBean.addProxVacuna()}"/>
+
+                    </h:panelGrid>
+
+                </p:fieldset>
+            </div>
+        </h:form>
+    </h:body>
+     <h:outputScript library="js" name="spanishLocale.js"/>
+</html>
+

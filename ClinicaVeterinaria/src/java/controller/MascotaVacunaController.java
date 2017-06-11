@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
  */
 public class MascotaVacunaController {
     //CRUD para MascotaVacuna
-    public void addGrupoUsuario(MascotaVacuna mascotaVacuna) {
+    public void addMascotaVacuna(MascotaVacuna mascotaVacuna) {
         Transaction tx = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         

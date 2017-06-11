@@ -22,7 +22,7 @@
             <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
         </p:panel>
         <h:form>
-            <!--Para mostrar mensajes en los campoc requeridos-->
+            <!--Para mostrar mensajes en los campos requeridos-->
             <p:messages id="mensaje" autoUpdate="false" />
             <div align="center">
                 <p:fieldset legend="Agregar Mascota" style="width:350pt">
@@ -74,7 +74,7 @@
                         <p:message for="txtFicha"/>
 
                         <h:column />
-                        <p:commandButton icon="ui-icon-check" value="Agregar" update="pgAddMascota"
+                        <p:commandButton icon="ui-icon-check" value="Guardar" update="pgAddMascota"
                                          actionListener="#{mascotaBean.addMascota()}"/>
 
                     </h:panelGrid>
