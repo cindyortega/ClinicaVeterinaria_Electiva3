@@ -5,9 +5,18 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Agregar Próxima Vacuna a Mascota</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-         <p:panel header="Clinica Veterinaria" style="margin-bottom:10px;text-align:center">
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:10px;text-align:center">
             <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
         </p:panel>
         <h:form>
@@ -25,7 +34,7 @@
                         <p:inputText id="txtMascota" value="#{proxVacunaBean.mascota}" required="true"
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtMascota" />
-                        
+
                         <p:outputLabel for="txtFecha" value="Fecha de Próxima Vacuna"/>
                         <p:calendar id="txtFecha" value="#{proxVacunaBean.fechaProxVacuna}" locale="es"
                                     required="true" requiredMessage="Campo Requerido"/>
@@ -51,6 +60,6 @@
             </div>
         </h:form>
     </h:body>
-     <h:outputScript library="js" name="spanishLocale.js"/>
+    <h:outputScript library="js" name="spanishLocale.js"/>
 </html>
 
