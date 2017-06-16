@@ -24,6 +24,7 @@
             <!--Para mostrar mensajes en los campoc requeridos
               en vez de p:messages se puede poner p:growl para que muestre los mensajes de arriba
             como uuna notificacion y desaparezca automaticamente en unos segundos-->
+           
             <p:messages id="mensaje" autoUpdate="false" severity="info, fatal" showSummary="true" showDetail="true" />
             <div align="center">
                 <p:fieldset legend="Registrar Usuario" style="width:350pt">
@@ -32,11 +33,11 @@
                         <p:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtId"/>
-
-                        <p:outputLabel for="cboGrupoUsuario" value="Grupo Usuario"/>
-                        <p:selectOneMenu id="cboGrupoUsuario" value="#{usuarioBean.grupoUsuario}" 
+                        
+                        <p:outputLabel for="cboGrupoUsuario" value="Grupo Usuario" /> 
+                        <p:selectOneMenu id="cboGrupoUsuario" value="#{usuarioBean.grupoUsuario.idGrupo}" 
                                          required="true" requiredMessage="Campo Requerido">
-                            <f:selectItem itemValue="1" itemLabel="Medico"/>
+                            <f:selectItem itemValue="1" itemLabel="Médico"/>
                             <f:selectItem itemValue="2" itemLabel="Recepcionista"/>
                         </p:selectOneMenu>
                         <p:message for="cboGrupoUsuario"/>

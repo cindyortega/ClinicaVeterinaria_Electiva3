@@ -7,6 +7,7 @@ package controller;
 
 import model.HibernateUtil;
 import model.Vacuna;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -43,7 +44,24 @@ public class VacunaController {
         
     }
     
+    //Buscar vacuna por su ID
     public Vacuna getVacunaByID (int idVacuna) {
-        return null;
+        Vacuna vacuna = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from vacuna where id_vacuna = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idVacuna);
+            vacuna = (Vacuna) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return vacuna;
     }
 }

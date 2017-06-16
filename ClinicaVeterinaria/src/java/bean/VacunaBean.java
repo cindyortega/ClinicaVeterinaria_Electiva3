@@ -8,8 +8,10 @@ package bean;
 import controller.VacunaController;
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Vacuna;
 
 /**
@@ -38,6 +40,33 @@ public class VacunaBean {
         vacunaController.addVacuna(vacuna);
     }
 
+     
+      //es el metodo getVacunaByID, pero se usa Return aca para no confundir con los getters
+    public void returnVacunaByID(){
+        VacunaController vacunaController = new VacunaController();
+        Vacuna vacuna = vacunaController.getVacunaByID(getIdVacuna());
+        //si el bean no encuentra una Vacuna, devolvera null, de esa manera se sabe si la Vacuna existe o no
+        if (vacuna != null){
+            setIdVacuna(vacuna.getIdVacuna());
+            setNombreVacuna(vacuna.getNombreVacuna());
+            setDescripcion(vacuna.getDescripcion());
+            
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setNombreVacuna("");
+            setDescripcion("");
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Vacuna NO encontrada."));
+        }
+    }
+    
+    public void limpiarDatos(){
+        setIdVacuna(0);
+        setNombreVacuna("");
+        setDescripcion("");
+    }
+     
     /**
      * @return the idVacuna
      */

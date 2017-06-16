@@ -7,8 +7,10 @@ package bean;
 
 import controller.MascotaVacunaController;
 import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Mascota;
 import model.MascotaVacuna;
 import model.MascotaVacunaId;
@@ -45,6 +47,46 @@ public class MascotaVacunaBean {
         mascotaVacunaController.addMascotaVacuna(mascotaVacuna);
     }
 
+    
+    //es el metodo getMascotaVacunaByID, pero se usa Return aca para no confundir con los getters
+    public void returnMascotaVacunaByID(){
+        MascotaVacunaController mascotaVacunaController = new MascotaVacunaController();
+        //Verificar la linea de abajo, ya que no puedo poner getId porque es un objeto, y esto recibe un int
+        MascotaVacuna mascotaVacuna = mascotaVacunaController.getMascotaVacunaByID(mascota.getIdMascota());
+        //si el bean no encuentra una mascotavacuna, devolvera null, de esa manera se sabe si la mascotavacuna existe o no
+        if (mascotaVacuna != null){
+            setId(mascotaVacuna.getId());
+            setMascota(mascotaVacuna.getMascota());
+            setMedicoVeterinario(mascotaVacuna.getMedicoVeterinario());
+            setVacuna(mascotaVacuna.getVacuna());
+            setNombreVacuna(mascotaVacuna.getNombreVacuna());
+            setDetallesDosis(mascotaVacuna.getDetallesDosis());
+            setFechaAplicacion(mascotaVacuna.getFechaAplicacion());
+          
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setMascota(null);
+            setMedicoVeterinario(null);
+            setVacuna(null);
+            setNombreVacuna("");
+            setDetallesDosis("");
+            setFechaAplicacion(null);
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mascota Vacuna NO encontrada."));
+        }
+    }
+    
+    public void limpiarDatos(){
+        setId(null);
+        setMascota(null);
+        setMedicoVeterinario(null);
+        setVacuna(null);
+        setNombreVacuna("");
+        setDetallesDosis("");
+        setFechaAplicacion(null);
+    }
+    
     /**
      * @return the id
      */

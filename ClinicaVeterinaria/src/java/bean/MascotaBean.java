@@ -9,8 +9,10 @@ import controller.MascotaController;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Cliente;
 import model.Mascota;
 
@@ -46,6 +48,51 @@ public class MascotaBean {
         mascotaController.addMascota(mascota);
     }
     
+    
+    //es el metodo getMascotaByID, pero se usa Return aca para no confundir con los getters
+    public void returnMascotaByID(){
+        MascotaController mascotaController = new MascotaController();
+        Mascota mascota = mascotaController.getMascotaByID(getIdMascota());
+        //si el bean no encuentra una mascota, devolvera null, de esa manera se sabe si la mascota existe o no
+        if (mascota != null){
+            setIdMascota(mascota.getIdMascota());
+            setCliente(mascota.getCliente());
+            setNombre(mascota.getNombre());
+            setEspecie(mascota.getEspecie());
+            setRaza(mascota.getRaza());
+            setSexo(mascota.getSexo());
+            setColor(mascota.getColor());
+            setFechaNacimiento(mascota.getFechaNacimiento());
+            setNroFicha(mascota.getNroFicha());
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setCliente(null);
+            setNombre("");
+            setEspecie("");
+            setRaza("");
+            setSexo("");
+            setColor("");
+            Date fecha = new Date();
+            setFechaNacimiento(fecha);
+            setNroFicha(0);
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Mascota NO encontrada."));
+        }
+    }
+    
+    public void limpiarDatos(){
+        setIdMascota(0);
+        setCliente(null);
+        setNombre("");
+        setEspecie("");
+        setRaza("");
+        setSexo("");
+        setColor("");
+        setFechaNacimiento(null);
+        setNroFicha(0);
+    }
+      
     /**
      * @return the idMascota
      */

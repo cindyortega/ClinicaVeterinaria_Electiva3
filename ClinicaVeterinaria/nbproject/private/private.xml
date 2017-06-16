@@ -3,11 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addCliente.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addGrupoUsuario.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/controller/ClienteController.java</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addMascota.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addMedicoVeterinario.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/HibernateUtil.java</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addMascotaVacuna.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addProxVacuna.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addUsuario.xhtml</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/welcomePrimefaces.xhtml</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addCliente.xhtml</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/HibernateUtil.java</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/ProxVacuna.hbm.xml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/addVacuna.xhtml</file>
+            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/index.xhtml</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/hibernate.reveng.xml</file>
         </group>
     </open-files>

@@ -9,13 +9,13 @@
     <h:body> 
 
         <h:form class="form-signin">
-            <p:messages autoUpdate="true" />
+            <p:messages autoUpdate="false" />
             <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
                 <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
             </p:panel>
             <div align="center">
                 <p:fieldset legend="Iniciar Sesión" style="width:350pt">
-                    <h:panelGrid columns="3">
+                    <h:panelGrid columns="3" id="pgIndex">
                         <p:outputLabel for="txtUsuario" value="Usuario: " />
                         <p:inputText id="txtUsuario" value="#{usuarioBean.usuario}" required="true"
                                      requiredMessage="Campo Requerido"/>
@@ -27,7 +27,7 @@
                         <p:message for="txtPass"/>
 
                         <h:column />
-                        <p:commandButton icon="ui-icon-key" value="Iniciar Sesión"
+                        <p:commandButton icon="ui-icon-key" value="Iniciar Sesión" update="pgIndex"
                                          action="#{usuarioBean.verificarDatos()}"/>
                     </h:panelGrid>
 

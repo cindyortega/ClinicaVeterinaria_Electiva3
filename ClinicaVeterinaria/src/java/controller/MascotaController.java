@@ -7,6 +7,7 @@ package controller;
 
 import model.HibernateUtil;
 import model.Mascota;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -44,7 +45,24 @@ public class MascotaController {
         
     }
     
+    //buscar mascota por su ID
     public Mascota getMascotaByID (int idMascota) {
-        return null;
+        Mascota mascota = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from mascota where id_mascota = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idMascota);
+            mascota = (Mascota) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return mascota;
     }
 }
