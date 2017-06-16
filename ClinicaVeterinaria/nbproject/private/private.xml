@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/addMascota.xhtml</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/bean/MascotaVacunaBean.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/addMascotaVacuna.xhtml</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/menu1.xhtml</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/getMascotaVacunaByID.xhtml</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/getMedicoVeterinarioByID.xhtml</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/getMascotaByID.xhtml</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/getClienteByID.xhtml</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/bean/MedicoVeterinarioBean.java</file>
         </group>
     </open-files>
 </project-private>

@@ -61,8 +61,25 @@ public class UsuarioController {
         
     }
     
+    //buscar usuario por su ID
     public Usuario getUsuarioByID (int idUsuario) {
-        return null;
+        Usuario usuario = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from usuario where id_usuario = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idUsuario);
+            usuario = (Usuario) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return usuario;
     }
 
 }

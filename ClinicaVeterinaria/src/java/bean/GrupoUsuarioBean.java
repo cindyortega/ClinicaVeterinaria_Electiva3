@@ -8,8 +8,10 @@ package bean;
 import controller.GrupoUsuarioController;
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.GrupoUsuario;
 
 /**
@@ -35,6 +37,29 @@ public class GrupoUsuarioBean {
         GrupoUsuario grupoUsuario = new GrupoUsuario (getIdGrupo(), getNombreGrupo(), getUsuarios());
         GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
         grupoUsuarioController.addGrupoUsuario(grupoUsuario);
+    }
+    
+    
+     //es el metodo getGrupoUsuarioByID, pero se usa Return aca para no confundir con los getters
+    public void returnGrupoUsuarioByID(){
+        GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
+        GrupoUsuario grupoUsuario = grupoUsuarioController.getGrupoUsuarioByID(getIdGrupo());
+        //si el bean no encuentra un GrupoUsuario, devolvera null, de esa manera se sabe si el GrupoUsuario existe o no
+        if (grupoUsuario != null){
+            setIdGrupo(grupoUsuario.getIdGrupo());
+            setNombreGrupo(grupoUsuario.getNombreGrupo());
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setNombreGrupo("");
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Grupo de Usuario NO encontrado."));
+        }
+    }
+    
+    public void limpiarDatos(){
+        setIdGrupo(0);
+        setNombreGrupo("");
     }
     
     /**

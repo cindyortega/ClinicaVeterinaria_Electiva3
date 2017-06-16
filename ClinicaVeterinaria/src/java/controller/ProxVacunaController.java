@@ -7,6 +7,7 @@ package controller;
 
 import model.HibernateUtil;
 import model.ProxVacuna;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -43,7 +44,24 @@ public class ProxVacunaController {
         
     }
     
+    //Buscar Prox vacuna por su ID
     public ProxVacuna getProxVacunaByID (int idProxVacuna) {
-        return null;
+        ProxVacuna proxVacuna = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from prox_vacuna where id_prox_vacuna = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idProxVacuna);
+            proxVacuna = (ProxVacuna) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return proxVacuna;
     }
 }

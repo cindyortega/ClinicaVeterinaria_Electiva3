@@ -7,8 +7,10 @@ package bean;
 
 import controller.ProxVacunaController;
 import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Mascota;
 import model.ProxVacuna;
 
@@ -38,6 +40,40 @@ public class ProxVacunaBean {
         ProxVacunaController proxVacunaController = new ProxVacunaController();
         proxVacunaController.addProxVacuna(proxVacuna);
     }
+    
+    
+    //es el metodo getProxVacunaByID, pero se usa Return aca para no confundir con los getters
+    public void returnProxVacunaByID(){
+        ProxVacunaController proxVacunaController = new ProxVacunaController();
+        ProxVacuna proxVacuna = proxVacunaController.getProxVacunaByID(getIdProxVacuna());
+        //si el bean no encuentra una ProxVacuna, devolvera null, de esa manera se sabe si la ProxVacuna existe o no
+        if (proxVacuna != null){
+            setIdProxVacuna(proxVacuna.getIdProxVacuna());
+            setMascota(proxVacuna.getMascota());
+            setFechaProxVacuna(proxVacuna.getFechaProxVacuna());
+            setNombreVacuna(proxVacuna.getNombreVacuna());
+            setDetalles(proxVacuna.getDetalles());
+            
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setMascota(null);
+            setFechaProxVacuna(null);
+            setNombreVacuna("");
+            setDetalles("");
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Próxima Vacuna NO encontrada."));
+        }
+    }
+    
+    public void limpiarDatos(){
+        setIdProxVacuna(0);
+        setMascota(null);
+        setFechaProxVacuna(null);
+        setNombreVacuna("");
+        setDetalles("");
+    }
+    
     
     /**
      * @return the idProxVacuna

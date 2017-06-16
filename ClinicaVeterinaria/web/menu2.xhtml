@@ -35,12 +35,14 @@
                     <br></br>
 
                     <p:panel header="Buscar">
-
+                        <p:link outcome="getClienteByID" value="Buscar Cliente" /> <br/>
+                        <p:link outcome="getMascotaByID" value="Buscar Mascota" /> <br/>
                     </p:panel>
 
                     <br></br>
 
-                    <p:commandButton value="Cerrar Sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                    <p:commandButton value="Cerrar Sesión" actionListener="#{usuarioBean.cerrarSesion()}" 
+                                     action="/index?faces-redirect=true" icon="ui-icon-power"/>
                 </p:fieldset>
 
             </h:form>

@@ -8,8 +8,10 @@ package bean;
 import controller.ClienteController;
 import java.util.HashSet;
 import java.util.Set;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import model.Cliente;
 
 /**
@@ -41,6 +43,39 @@ public class ClienteBean {
         clienteController.addCliente(cliente);
     }
 
+    
+    //es el metodo getClienteByID, pero se usa Return aca para no confundir con los getters
+    public void returnClienteByID(){
+        ClienteController clienteController = new ClienteController();
+        Cliente cliente = clienteController.getClienteByID(getIdCliente());
+        //si el bean no encuentra un cliente, devolvera null, de esa manera se sabe si el cliente existe o no
+        if (cliente != null){
+            setIdCliente(cliente.getIdCliente());
+            setNombre(cliente.getNombre());
+            setTelefono(cliente.getTelefono());
+            setDireccion(cliente.getDireccion());
+            setEmail(cliente.getEmail());
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setNombre("");
+            setTelefono("");
+            setDireccion("");
+            setEmail("");
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cliente NO encontrado."));
+        }
+    }
+    
+    
+    public void limpiarDatos(){
+        setIdCliente(0);
+        setNombre("");
+        setTelefono("");
+        setDireccion("");
+        setEmail("");
+    }
+    
     /**
      * @return the idCliente
      */

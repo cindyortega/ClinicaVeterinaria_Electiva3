@@ -17,7 +17,7 @@
         </style>
     </h:head>
     <h:body>
-         <!--ahora solo se va a ver si se inicia sesion porque esta renderizado rendered="#{usuarioBean.verificarSesion()}"-->
+         <!--ahora solo se va a ver si se inicia sesion porque esta renderizado, rendered="#{usuarioBean.verificarSesion()}"-->
         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
             <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
         </p:panel>
@@ -38,7 +38,9 @@
                     <br></br>
                     
                     <p:panel header="Buscar">
-                        
+                        <p:link outcome="getClienteByID" value="Buscar Cliente" /> <br/>
+                        <p:link outcome="getGrupoUsuarioByID" value="Buscar Grupo de Usuario" /> <br/>
+                        <p:link outcome="getMascotaByID" value="Buscar Mascota" /> <br/>
                     </p:panel>
                     
                     <br></br>
@@ -49,7 +51,8 @@
                     
                     <br></br>
                     
-                    <p:commandButton value="Cerrar Sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                    <p:commandButton value="Cerrar Sesión" actionListener="#{usuarioBean.cerrarSesion()}"
+                                     action="/index?faces-redirect=true" icon="ui-icon-power"/>
                 </p:fieldset>
 
             </h:form>

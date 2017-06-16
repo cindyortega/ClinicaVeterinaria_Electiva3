@@ -7,6 +7,7 @@ package controller;
 
 import model.HibernateUtil;
 import model.MascotaVacuna;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -43,7 +44,25 @@ public class MascotaVacunaController {
         
     }
     
-    public MascotaVacuna getMascotaVacunaByID (int idMascotaVacuna) {
-        return null;
+    //buscar mascotaVacuna por su ID
+    public MascotaVacuna getMascotaVacunaByID (int id) {
+        MascotaVacuna mascotaVacuna = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //aca ver como poner porque tiene dos claves, falta id_vacuna
+            String queryString = "from mascota_vacuna where id_mascota = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", id);
+            mascotaVacuna = (MascotaVacuna) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return mascotaVacuna;
     }
 }

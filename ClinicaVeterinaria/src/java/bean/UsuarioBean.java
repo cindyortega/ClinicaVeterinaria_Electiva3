@@ -9,6 +9,8 @@ import controller.UsuarioController;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+//esto esta importado en el video
+//import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import model.GrupoUsuario;
 import model.Usuario;
@@ -35,9 +37,7 @@ public class UsuarioBean {
     public UsuarioBean() {
     }
 
-    /**
-     * @return the idUsuario
-     */
+   
     public void addUsuario (){
         try {
             Usuario usuario = new Usuario (getIdUsuario(), getGrupoUsuario(), getUsuario(), getNombre(), getApellido(), getPassword());
@@ -63,7 +63,16 @@ public class UsuarioBean {
                  FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
                  resultado = "exito";
              } else {
-                 resultado = "error";
+                 resultado = "index";
+             }
+             
+             if ("exito".equals(resultado)){        //resultado == "exito"
+                 if (verificarPermisos1()){
+                     resultado = "menu1?faces-redirect=true";
+                 }
+                 if (verificarPermisos2()){
+                    resultado = "menu2?faces-redirect=true";
+                }
              }
         } catch(Exception e){
             throw e;
@@ -73,17 +82,10 @@ public class UsuarioBean {
         return resultado;
     }
     
-    /*public boolean checkLogin (){
-        //verificar usuario y pass
-        //esta mal la oarte del form
-        if (usuario.getUsuario().equals(usuarioForm.getUsuario)&&usuario.getPassword().equals(usuarioForm.getPassword())){
-            return true;
-        }
-       return false;
-    }*/
     
     public boolean verificarSesion(){
         //Verificar la sesion para el renderizado, que solo acepta boolean
+        //no se si le tiene que llamar a verificarSesion
         boolean estado;
         
         if(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario") == null){
@@ -101,6 +103,63 @@ public class UsuarioBean {
         return "index";
     }
     
+    //no se si esto esta bien, pero la idea es renderizar en cada menu
+    public boolean verificarPermisos1(){
+        boolean bandera = false;
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        //Probar si funciona poniendo el 1 en el equals
+        if (us.getGrupoUsuario().equals(1)){
+            bandera = true;
+        }
+        return bandera;
+    }
+    
+    public boolean verificarPermisos2(){
+        boolean bandera = false;
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        //Probar si funciona poniendo el 1 en el equals
+        if (us.getGrupoUsuario().equals(2)){
+            bandera = true;
+        }
+        return bandera;
+    }
+    
+    
+    //es el metodo getUsuarioByID, pero se usa Return aca para no confundir con los getters
+    public void returnUsuarioByID(){
+        UsuarioController usuarioController = new UsuarioController();
+       Usuario usuario = usuarioController.getUsuarioByID(getIdUsuario());
+        //si el bean no encuentra un usuario, devolvera null, de esa manera se sabe si el usuario existe o no
+        if (usuario != null){
+            setIdUsuario(usuario.getIdUsuario());
+            setGrupoUsuario(usuario.getGrupoUsuario());
+            setUsuario(usuario.getUsuario());
+            setNombre(usuario.getNombre());
+            setApellido(usuario.getApellido());
+            
+        } else {
+            //para limpiar se pone vacios los datos del bean
+            //ver si hace falta agregar esto
+            setGrupoUsuario(null);
+            setUsuario("");
+            setNombre("");
+            setApellido("");
+            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Usuario NO encontrado."));
+        }
+    }
+    
+    public void limpiarDatos(){
+            setIdUsuario(0);
+            setGrupoUsuario(null);
+            setUsuario("");
+            setNombre("");
+            setApellido("");
+    }
+    
+     /**
+     * @return the idUsuario
+     */
     public int getIdUsuario() {
         return idUsuario;
     }

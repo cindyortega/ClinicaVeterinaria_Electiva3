@@ -7,6 +7,7 @@ package controller;
 
 import model.HibernateUtil;
 import model.MedicoVeterinario;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -43,7 +44,24 @@ public class MedicoVeterinarioController {
         
     }
     
+    //Buscar medico por su ID
     public MedicoVeterinario getMedicoVeterinarioByID (int idMedicoVeterinario) {
-        return null;
+        MedicoVeterinario medicoVeterinario = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from medico_veterinario where id_medico = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idMedicoVeterinario);
+            medicoVeterinario = (MedicoVeterinario) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return medicoVeterinario;
     }
 }

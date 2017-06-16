@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Buscar Mascota</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Buscar Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgBuscarMascota">
+                        <p:outputLabel for="txtId" value="ID Mascota: "/>
+                        <p:inputText id="txtId" value="#{mascotaBean.idMascota}" required="true"
+                                         requiredMessage="Campo requerido."/>
+                            <p:message for="txtId"/>
+                            
+                            <p:outputLabel for="txtCliente" value="Cliente: "/>
+                            <p:inputText id="txtCliente" value="#{mascotaBean.cliente}"/>
+                            <p:message for="txtCliente"/>
+
+                             <p:outputLabel for="txtNombre" value="Nombre: "/>
+                             <p:inputText id="txtNombre" value="#{mascotaBean.nombre}"/>
+                            <p:message for="txtNombre"/>
+
+                            <p:outputLabel for="txtEspecie" value="Especie: "/>
+                            <p:inputText id="txtEspecie" value="#{mascotaBean.especie}"/>
+                            <p:message for="txtEspecie"/>
+
+                            <p:outputLabel for="txtRaza" value="Raza: "/>
+                            <p:inputText id="txtRaza" value="#{mascotaBean.raza}"/>
+                            <p:message for="txtRaza"/>
+
+                            <p:outputLabel for="txtSexo" value="Sexo: "/>
+                            <p:inputText id="txtSexo" value="#{mascotaBean.sexo}"/>
+                            <p:message for="txtSexo"/>
+                            
+                            <p:outputLabel for="txtColor" value="Color: "/>
+                            <p:inputText id="txtColor" value="#{mascotaBean.color}"/>
+                            <p:message for="txtColor"/>
+                            
+                            <p:outputLabel for="txtFechaNac" value="Fecha de Nacimiento: "/>
+                            <p:inputText id="txtFechaNac" value="#{mascotaBean.fechaNacimiento}"/>
+                            <p:message for="txtFechaNac"/>
+                            
+                            <p:outputLabel for="txtNroFicha" value="Nro. de Ficha: "/>
+                            <p:inputText id="txtNroFicha" value="#{mascotaBean.nroFicha}"/>
+                            <p:message for="txtNroFicha"/>
+                            
+                            <h:column />
+                            <p:commandButton icon="ui-icon-search" value="Buscar" update="pgBuscarMascota"
+                                             action="#{mascotaBean.returnMascotaByID()}"/>
+                            <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgBuscarMascota"
+                                             actionListener="#{mascotaBean.limpiarDatos()}"/> <!--No limpia-->
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

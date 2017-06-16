@@ -7,6 +7,7 @@ package controller;
 
 import model.GrupoUsuario;
 import model.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -43,7 +44,24 @@ public class GrupoUsuarioController {
         
     }
     
+    //Buscar grupo de usuario por su ID
     public GrupoUsuario getGrupoUsuarioByID (int idGrupoUsuario) {
-        return null;
+        GrupoUsuario grupoUsuario = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from grupo_usuario where id_grupo = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idGrupoUsuario);
+            grupoUsuario = (GrupoUsuario) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return grupoUsuario;
     }
 }

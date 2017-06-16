@@ -7,6 +7,7 @@ package controller;
 
 import model.Cliente;
 import model.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -16,6 +17,8 @@ import org.hibernate.Transaction;
  */
 public class ClienteController {
     //CRUD para Cliente
+    
+    //Agregar Cliente
     public void addCliente(Cliente cliente) {
         Transaction tx = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -43,8 +46,25 @@ public class ClienteController {
         
     }
     
+    //Buscar Cliente por su ID
     public Cliente getClienteByID (int idCliente) {
-        return null;
+        Cliente cliente = null;
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            String queryString = "from cliente where id_cliente = :idToFind";
+            Query query = session.createQuery(queryString);
+            query.setInteger("idToFind", idCliente);
+            cliente = (Cliente) query.uniqueResult();
+        } catch (RuntimeException e){
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }       
+
+        return cliente;
     }
     
     
