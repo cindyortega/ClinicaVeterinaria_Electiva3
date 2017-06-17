@@ -2,18 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/controller/UsuarioController.java</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/Mascota.java</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/Usuario.java</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/controller/ClienteController.java</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/Usuario.hbm.xml</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/HibernateUtil.java</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/bean/UsuarioBean.java</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/GrupoUsuario.hbm.xml</file>
-            <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/bean/ClienteBean.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
