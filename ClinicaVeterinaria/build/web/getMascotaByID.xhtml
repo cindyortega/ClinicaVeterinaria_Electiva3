@@ -65,7 +65,7 @@
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgBuscarMascota"
                                          action="#{mascotaBean.returnMascotaByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgBuscarMascota"
-                                         actionListener="#{mascotaBean.limpiarDatos()}"/> <!--No limpia-->
+                                         action="#{mascotaBean.limpiarDatos()}"/> <!--No limpia porque no puede convertir string a objeto-->
                     </h:panelGrid>
                 </p:fieldset>
             </div>
