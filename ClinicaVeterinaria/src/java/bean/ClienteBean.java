@@ -81,6 +81,19 @@ public class ClienteBean {
         setDireccion("");
         setEmail("");
     }
+   
+    
+    public void deleteCliente(){
+        ClienteController clienteController = new ClienteController();
+        clienteController.deleteCliente(getIdCliente());
+        setNombre("");
+        setTelefono("");
+        setDireccion("");
+        setEmail("");
+            
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Cliente con ID " + getIdCliente() + " eliminado."));
+    }
     
     /**
      * @return the idCliente

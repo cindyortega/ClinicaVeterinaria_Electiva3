@@ -62,6 +62,16 @@ public class GrupoUsuarioBean {
         setNombreGrupo("");
     }
     
+    
+    public void deleteGrupoUsuario(){
+        GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
+        grupoUsuarioController.deleteGrupoUsuario(getIdGrupo());
+        setNombreGrupo("");
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Grupo de Usuario con ID: " + getIdGrupo() + " eliminado."));
+    }
+    
     /**
      * @return the idGrupo
      */

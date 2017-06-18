@@ -37,7 +37,24 @@ public class ProxVacunaController {
     }
     
     public void deleteProxVacuna (int idProxVacuna) {
-        
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Para borrar un registro se debe crear una instancia con el id a eliminar,
+            ProxVacuna proxVacuna = (ProxVacuna) session.load(ProxVacuna.class, new Integer(idProxVacuna));
+            //despues invocar el metodo delete con el objeto que tiene el id en cuestion
+            session.delete(proxVacuna);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
     
     public void updateProxVacuna (ProxVacuna proxVacuna) {

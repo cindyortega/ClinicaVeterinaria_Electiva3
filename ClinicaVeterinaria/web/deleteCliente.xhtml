@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Eliminar Cliente</title>
+    </h:head>
+    <h:body>
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Eliminar Cliente" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgEliminarCliente">
+                        <p:outputLabel for="txtId" value="ID Cliente: "/>
+                            <p:inputText id="txtId" value="#{clienteBean.idCliente}" required="true"
+                                         requiredMessage="Campo requerido."/>
+                            <p:message for="txtId"/>
+
+                             <p:outputLabel for="txtNombre" value="Nombre Completo: "/>
+                            <p:inputText id="txtNombre" value="#{clienteBean.nombre}"/>
+                            <p:message for="txtNombre"/>
+
+                            <p:outputLabel for="txtTelefono" value="Telefono: "/>
+                            <p:inputText id="txtTelefono" value="#{clienteBean.telefono}"/>
+                            <p:message for="txtTelefono"/>
+
+                            <p:outputLabel for="txtDireccion" value="Dirección: "/>
+                            <p:inputText id="txtDireccion" value="#{clienteBean.direccion}"/>
+                            <p:message for="txtDireccion"/>
+
+                            <p:outputLabel for="txtEmail" value="Email: "/>
+                            <p:inputText id="txtEmail" value="#{clienteBean.email}"/>
+                            <p:message for="txtEmail"/>
+
+                            <h:column />
+                            <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarCliente"
+                                             action="#{clienteBean.returnClienteByID()}"/>
+                            <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarCliente"
+                                             action="#{clienteBean.deleteCliente()}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+

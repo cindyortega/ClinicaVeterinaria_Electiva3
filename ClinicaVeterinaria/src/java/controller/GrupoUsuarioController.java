@@ -37,7 +37,24 @@ public class GrupoUsuarioController {
     }
     
     public void deleteGrupoUsuario (int idGrupoUsuario) {
-        
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Para borrar un registro se debe crear una instancia con el id a eliminar,
+            GrupoUsuario grupoUsuario = (GrupoUsuario) session.load(GrupoUsuario.class, new Integer(idGrupoUsuario));
+            //despues invocar el metodo delete con el objeto que tiene el id en cuestion
+            session.delete(grupoUsuario);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
     
     public void updateGrupoUsuario (GrupoUsuario grupoUsuario) {

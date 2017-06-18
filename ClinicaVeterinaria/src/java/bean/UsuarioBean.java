@@ -157,6 +157,19 @@ public class UsuarioBean {
             setApellido("");
     }
     
+    
+    public void deleteUsuario(){
+        UsuarioController usuarioController = new UsuarioController();
+        usuarioController.deleteUsuario(getIdUsuario());
+        setGrupoUsuario(null);
+        setUsuario("");
+        setNombre("");
+        setApellido("");
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Usuario con ID: " + getIdUsuario() + " eliminado."));
+    }
+    
      /**
      * @return the idUsuario
      */
