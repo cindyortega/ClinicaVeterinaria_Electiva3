@@ -92,7 +92,24 @@ public class MascotaBean {
         setFechaNacimiento(null);
         setNroFicha(0);
     }
-      
+     
+    
+    public  void deleteMascota(){
+        MascotaController mascotaController = new MascotaController();
+        mascotaController.deleteMascota(getIdMascota());
+        setCliente(null);
+        setNombre("");
+        setEspecie("");
+        setRaza("");
+        setSexo("");
+        setColor("");
+        setFechaNacimiento(null);
+        setNroFicha(0);
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Mascota con ID: " + getIdMascota() + " eliminada."));
+    }
+    
     /**
      * @return the idMascota
      */

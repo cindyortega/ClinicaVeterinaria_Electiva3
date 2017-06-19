@@ -75,6 +75,18 @@ public class ProxVacunaBean {
     }
     
     
+    public  void deleteProxVacuna(){
+        ProxVacunaController proxVacunaController = new ProxVacunaController();
+        proxVacunaController.deleteProxVacuna(getIdProxVacuna());
+        setMascota(null);
+        setFechaProxVacuna(null);
+        setNombreVacuna("");
+        setDetalles("");
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Proxima Vacuna con ID: " + getIdProxVacuna() + " eliminada."));
+    }
+    
     /**
      * @return the idProxVacuna
      */

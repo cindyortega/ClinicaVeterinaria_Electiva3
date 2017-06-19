@@ -71,6 +71,18 @@ public class MedicoVeterinarioBean {
         setNroRegistro(0);
     }
     
+    
+    public  void deleteMedicoVeterinario(){
+        MedicoVeterinarioController medicoVeterinarioController = new MedicoVeterinarioController();
+        medicoVeterinarioController.deleteMedicoVeterinario(getIdMedico());
+        setNombre("");
+        setApellido("");
+        setNroRegistro(0);
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Médico Veterinario con ID: " + getIdMedico() + " eliminado."));
+    }
+    
     /**
      * @return the idMedico
      */

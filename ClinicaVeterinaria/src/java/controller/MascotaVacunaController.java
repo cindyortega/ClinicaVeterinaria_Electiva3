@@ -37,7 +37,24 @@ public class MascotaVacunaController {
     }
     
     public void deleteMascotaVacuna (int idMascotaVacuna) {
-        
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Para borrar un registro se debe crear una instancia con el id a eliminar,
+            MascotaVacuna mascotaVacuna = (MascotaVacuna) session.load(MascotaVacuna.class, new Integer(idMascotaVacuna));
+            //despues invocar el metodo delete con el objeto que tiene el id en cuestion
+            session.delete(mascotaVacuna);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
     
     public void updateMascotaVacuna (MascotaVacuna mascotaVacuna) {

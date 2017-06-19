@@ -87,6 +87,21 @@ public class MascotaVacunaBean {
         setFechaAplicacion(null);
     }
     
+    
+    public  void deleteMascotaVacuna(){
+        MascotaVacunaController mascotaVacunaController = new MascotaVacunaController();
+        mascotaVacunaController.deleteMascotaVacuna(mascota.getIdMascota());
+        setMascota(null);
+        setMedicoVeterinario(null);
+        setVacuna(null);
+        setNombreVacuna("");
+        setDetallesDosis("");
+        setFechaAplicacion(null);
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Vacuna de Mascota con ID: " + mascota.getIdMascota() + " eliminada."));
+    }
+    
     /**
      * @return the id
      */

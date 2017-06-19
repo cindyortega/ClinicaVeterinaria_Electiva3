@@ -37,7 +37,24 @@ public class MedicoVeterinarioController {
     }
     
     public void deleteMedicoVeterinario (int idMedicoVeterinario) {
-        
+         Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Para borrar un registro se debe crear una instancia con el id a eliminar,
+            MedicoVeterinario medicoVeterinario = (MedicoVeterinario) session.load(MedicoVeterinario.class, new Integer(idMedicoVeterinario));
+            //despues invocar el metodo delete con el objeto que tiene el id en cuestion
+            session.delete(medicoVeterinario);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
     
     public void updateMedicoVeterinario (MedicoVeterinario medicoVeterinario) {

@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/controller/UsuarioController.java</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/web/WEB-INF/web.xml</file>
@@ -15,6 +16,12 @@
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/bean/UsuarioBean.java</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/model/GrupoUsuario.hbm.xml</file>
             <file>file:/C:/Users/adriana/ClinicaVeterinaria_Electiva3/ClinicaVeterinaria/src/java/bean/ClienteBean.java</file>
+=======
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/controller/VacunaController.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/web/getVacunaByID.xhtml</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/bean/MedicoVeterinarioBean.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/model/HibernateUtil.java</file>
+>>>>>>> 0fb74766131ec4d48e2a00f360f35612dda86340
         </group>
     </open-files>
 </project-private>

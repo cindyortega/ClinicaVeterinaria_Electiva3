@@ -54,10 +54,27 @@ public class UsuarioController {
     }
     
     public void deleteUsuario (int idUsuario) {
-        
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Para borrar un registro se debe crear una instancia con el id a eliminar,
+            Usuario usuario = (Usuario) session.load(Usuario.class, new Integer(idUsuario));
+            //despues invocar el metodo delete con el objeto que tiene el id en cuestion
+            session.delete(usuario);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
     
-    public void updateUsuario (Usuario Usuario) {
+    public void updateUsuario (Usuario usuario) {
         
     }
     

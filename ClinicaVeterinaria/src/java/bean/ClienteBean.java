@@ -41,6 +41,12 @@ public class ClienteBean {
         Cliente cliente = new Cliente (getIdCliente(), getNombre(), getTelefono(), getDireccion(), getEmail(), getMascotas());
         ClienteController clienteController = new ClienteController();
         clienteController.addCliente(cliente);
+        
+        /* en otro tutorial esta asi:
+        ClienteController clienteController = new ClienteController();
+        clienteController.addCliente(cliente);
+        cliente = new Cliente();
+        */
     }
 
     
@@ -74,6 +80,19 @@ public class ClienteBean {
         setTelefono("");
         setDireccion("");
         setEmail("");
+    }
+   
+    
+    public void deleteCliente(){
+        ClienteController clienteController = new ClienteController();
+        clienteController.deleteCliente(getIdCliente());
+        setNombre("");
+        setTelefono("");
+        setDireccion("");
+        setEmail("");
+            
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Cliente con ID " + getIdCliente() + " eliminado."));
     }
     
     /**

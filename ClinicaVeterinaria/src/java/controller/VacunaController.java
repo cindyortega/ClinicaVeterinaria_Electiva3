@@ -37,7 +37,24 @@ public class VacunaController {
     }
     
     public void deleteVacuna (int idVacuna) {
-        
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Para borrar un registro se debe crear una instancia con el id a eliminar,
+            Vacuna vacuna = (Vacuna) session.load(Vacuna.class, new Integer(idVacuna));
+            //despues invocar el metodo delete con el objeto que tiene el id en cuestion
+            session.delete(vacuna);
+            session.getTransaction().commit();
+        } catch (RuntimeException e) {
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.flush();
+            session.close();
+        }
     }
     
     public void updateVacuna (Vacuna vacuna) {

@@ -67,6 +67,17 @@ public class VacunaBean {
         setDescripcion("");
     }
      
+    
+    public  void deleteVacuna(){
+        VacunaController vacunaController = new VacunaController();
+        vacunaController.deleteVacuna(getIdVacuna());
+        setNombreVacuna("");
+        setDescripcion("");
+            
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage("Vacuna con ID: " + getIdVacuna() + " eliminada."));
+    }
+    
     /**
      * @return the idVacuna
      */
