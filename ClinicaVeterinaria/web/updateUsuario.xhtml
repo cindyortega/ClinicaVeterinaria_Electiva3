@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Buscar Usuario</title>
+        <title>Actualizar Usuario</title>
         <style>
             body {
                 background-image: url("#{resource['images/image8.png']}");
@@ -22,8 +22,8 @@
         <h:form>
             <p:messages id="mensaje" autoUpdate="false" style="blue" />
             <div align="center">
-                <p:fieldset legend="Buscar Usuario" style="width:350pt">
-                    <h:panelGrid columns="3" id="pgBuscarUsuario">
+                <p:fieldset legend="Actualizar Usuario" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgActualizarUsuario">
                         <p:outputLabel for="txtId" value="ID Usuario: "/>
                         <p:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
                                      requiredMessage="Campo requerido."/>
@@ -46,10 +46,10 @@
                         <p:message for="txtApellido"/>
 
                         <h:column />
-                        <p:commandButton icon="ui-icon-search" value="Buscar" update="pgBuscarUsuario"
+                        <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarUsuario"
                                          action="#{usuarioBean.returnUsuarioByID()}"/>
-                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgBuscarUsuario"
-                                         action="#{usuarioBean.limpiarDatos()}"/> <!--No limpia  porque no puede convertir-->
+                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarUsuario"
+                                         action="#{usuarioBean.updateUsuario()}"/> 
                     </h:panelGrid>
                 </p:fieldset>
             </div>

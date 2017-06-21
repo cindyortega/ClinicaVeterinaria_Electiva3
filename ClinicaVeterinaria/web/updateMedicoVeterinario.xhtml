@@ -4,7 +4,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Buscar Usuario</title>
+        <title>Actualizar Medico Veterinario</title>
         <style>
             body {
                 background-image: url("#{resource['images/image8.png']}");
@@ -22,34 +22,30 @@
         <h:form>
             <p:messages id="mensaje" autoUpdate="false" style="blue" />
             <div align="center">
-                <p:fieldset legend="Buscar Usuario" style="width:350pt">
-                    <h:panelGrid columns="3" id="pgBuscarUsuario">
-                        <p:outputLabel for="txtId" value="ID Usuario: "/>
-                        <p:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
+                <p:fieldset legend="Actualizar Médico Veterinario" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgActualizarMedico">
+                        <p:outputLabel for="txtId" value="ID Médico Veterinario: "/>
+                        <p:inputText id="txtId" value="#{medicoVeterinarioBean.idMedico}" required="true"
                                      requiredMessage="Campo requerido."/>
                         <p:message for="txtId"/>
 
-                        <p:outputLabel for="txtGrupoUsuario" value="Grupo de Usuario: "/>
-                        <p:inputText id="txtGrupoUsuario" value="#{usuarioBean.grupoUsuario}"/>
-                        <p:message for="txtGrupoUsuario"/>
-
-                        <p:outputLabel for="txtUsuario" value="Usuario: "/>
-                        <p:inputText id="txtUsuario" value="#{usuarioBean.usuario}"/>
-                        <p:message for="txtUsuario"/>
-
                         <p:outputLabel for="txtNombre" value="Nombre: "/>
-                        <p:inputText id="txtNombre" value="#{usuarioBean.nombre}"/>
+                        <p:inputText id="txtNombre" value="#{medicoVeterinarioBean.nombre}"/>
                         <p:message for="txtNombre"/>
 
                         <p:outputLabel for="txtApellido" value="Apellido: "/>
-                        <p:inputText id="txtApellido" value="#{usuarioBean.apellido}"/>
+                        <p:inputText id="txtApellido" value="#{medicoVeterinarioBean.apellido}"/>
                         <p:message for="txtApellido"/>
 
+                        <p:outputLabel for="txtNroRegistro" value="Nro. de Registro: "/>
+                        <p:inputText id="txtNroRegistro" value="#{medicoVeterinarioBean.nroRegistro}"/>
+                        <p:message for="txtNroRegistro"/>
+
                         <h:column />
-                        <p:commandButton icon="ui-icon-search" value="Buscar" update="pgBuscarUsuario"
-                                         action="#{usuarioBean.returnUsuarioByID()}"/>
-                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgBuscarUsuario"
-                                         action="#{usuarioBean.limpiarDatos()}"/> <!--No limpia  porque no puede convertir-->
+                        <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarMedico"
+                                         action="#{medicoVeterinarioBean.returnMedicoVeterinarioByID()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarMedico"
+                                         actionListener="#{medicoVeterinarioBean.updateMedicoVeterinario()}"/>
                     </h:panelGrid>
                 </p:fieldset>
             </div>

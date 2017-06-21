@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Buscar Usuario</title>
-                        <style>
+        <style>
             body {
                 background-image: url("#{resource['images/image8.png']}");
                 background-size: cover;
@@ -13,7 +13,7 @@
                 background-attachment:fixed;
 
             }
-            </style>
+        </style>
     </h:head>
     <h:body>
         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
@@ -44,7 +44,7 @@
                         <p:outputLabel for="txtApellido" value="Apellido: "/>
                         <p:inputText id="txtApellido" value="#{usuarioBean.apellido}"/>
                         <p:message for="txtApellido"/>
-                        
+
                         <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgBuscarUsuario"
                                          action="#{usuarioBean.returnUsuarioByID()}"/>
