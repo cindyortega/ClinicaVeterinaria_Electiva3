@@ -5,8 +5,10 @@
  */
 package controller;
 
+import java.util.List;
 import model.HibernateUtil;
 import model.ProxVacuna;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,11 +18,12 @@ import org.hibernate.Transaction;
  * @author usuario
  */
 public class ProxVacunaController {
+
     //CRUD para ProxVacuna
     public void addProxVacuna(ProxVacuna proxVacuna) {
         Transaction tx = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         try {
             tx = session.beginTransaction();
             session.save(proxVacuna);
@@ -35,8 +38,8 @@ public class ProxVacunaController {
             session.close();
         }
     }
-    
-    public void deleteProxVacuna (int idProxVacuna) {
+
+    public void deleteProxVacuna(int idProxVacuna) {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -47,7 +50,7 @@ public class ProxVacunaController {
             session.delete(proxVacuna);
             session.getTransaction().commit();
         } catch (RuntimeException e) {
-            if (trns != null){
+            if (trns != null) {
                 trns.rollback();
             }
             e.printStackTrace();
@@ -56,9 +59,9 @@ public class ProxVacunaController {
             session.close();
         }
     }
-    
+
     //Recibe el id del registro a modificar, y los nuevos datos del objeto.
-    public void updateProxVacuna (int idProxVacuna, ProxVacuna newProxVacuna) {
+    public void updateProxVacuna(int idProxVacuna, ProxVacuna newProxVacuna) {
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
@@ -73,20 +76,20 @@ public class ProxVacunaController {
             //se actualiza
             session.update(oldProxVacuna);
             trns.commit();
-        } catch(RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
-            if (trns != null){
+            if (trns != null) {
                 trns.rollback();
             }
             e.printStackTrace();
-        } finally{
+        } finally {
             session.flush();
             session.close();
         }
     }
-    
+
     //Buscar Prox vacuna por su ID
-    public ProxVacuna getProxVacunaByID (int idProxVacuna) {
+    public ProxVacuna getProxVacunaByID(int idProxVacuna) {
         ProxVacuna proxVacuna = null;
         Transaction trns = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -96,13 +99,31 @@ public class ProxVacunaController {
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idProxVacuna);
             proxVacuna = (ProxVacuna) query.uniqueResult();
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
         } finally {
             session.flush();
             session.close();
-        }       
+        }
 
         return proxVacuna;
+    }
+
+    //Para hacer la lista de las mascotas proximas a vacunarse
+    public List<ProxVacuna> mostrarProxVacuna() {
+        Session session = null;
+        List<ProxVacuna> lista = null;
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("from prox_vacuna where fecha_prox_vacuna - CAST('2 days' AS INTERVAL) =  date('today')");
+            lista = (List<ProxVacuna>) query.list();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (session != null) {
+                session.close();
+            }
+        }
+        return lista;
     }
 }
