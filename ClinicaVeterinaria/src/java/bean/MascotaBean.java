@@ -110,6 +110,15 @@ public class MascotaBean {
                 new FacesMessage("Mascota con ID: " + getIdMascota() + " eliminada."));
     }
     
+    
+    public void updateMascota(){
+        Mascota newMascota = new Mascota(getIdMascota(), getCliente(), getNombre(), getEspecie(), getRaza(), getSexo(), getColor(), getFechaNacimiento(), getNroFicha());
+        MascotaController mascotaController = new MascotaController();
+        mascotaController.updateMascota(getIdMascota(), newMascota);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Mascota actualizada correctamente."));
+    }
+    
     /**
      * @return the idMascota
      */

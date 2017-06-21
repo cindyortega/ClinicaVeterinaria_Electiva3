@@ -5,9 +5,47 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Eliminar Vacuna</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Eliminar Vacuna" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgEliminarVacuna">
+                        <p:outputLabel for="txtId" value="ID Vacuna: "/>
+                        <p:inputText id="txtId" value="#{vacunaBean.idVacuna}" required="true"
+                                     requiredMessage="Campo requerido."/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtNombreVacuna" value="Nombre de la Vacuna: "/>
+                        <p:inputText id="txtNombreVacuna" value="#{vacunaBean.nombreVacuna}"/>
+                        <p:message for="txtNombreVacuna"/>
+
+                        <p:outputLabel for="txtDescripcion" value="Descripcion: "/>
+                        <p:inputText id="txtDescripcion" value="#{vacunaBean.descripcion}"/>
+                        <p:message for="txtDescripcion"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarVacuna"
+                                         action="#{vacunaBean.returnVacunaByID()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarVacuna"
+                                         action="#{vacunaBean.deleteVacuna()}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

@@ -5,6 +5,15 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Eliminar Cliente</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
@@ -16,31 +25,31 @@
                 <p:fieldset legend="Eliminar Cliente" style="width:350pt">
                     <h:panelGrid columns="3" id="pgEliminarCliente">
                         <p:outputLabel for="txtId" value="ID Cliente: "/>
-                            <p:inputText id="txtId" value="#{clienteBean.idCliente}" required="true"
-                                         requiredMessage="Campo requerido."/>
-                            <p:message for="txtId"/>
+                        <p:inputText id="txtId" value="#{clienteBean.idCliente}" required="true"
+                                     requiredMessage="Campo requerido."/>
+                        <p:message for="txtId"/>
 
-                             <p:outputLabel for="txtNombre" value="Nombre Completo: "/>
-                            <p:inputText id="txtNombre" value="#{clienteBean.nombre}"/>
-                            <p:message for="txtNombre"/>
+                        <p:outputLabel for="txtNombre" value="Nombre Completo: "/>
+                        <p:inputText id="txtNombre" value="#{clienteBean.nombre}"/>
+                        <p:message for="txtNombre"/>
 
-                            <p:outputLabel for="txtTelefono" value="Telefono: "/>
-                            <p:inputText id="txtTelefono" value="#{clienteBean.telefono}"/>
-                            <p:message for="txtTelefono"/>
+                        <p:outputLabel for="txtTelefono" value="Telefono: "/>
+                        <p:inputText id="txtTelefono" value="#{clienteBean.telefono}"/>
+                        <p:message for="txtTelefono"/>
 
-                            <p:outputLabel for="txtDireccion" value="Dirección: "/>
-                            <p:inputText id="txtDireccion" value="#{clienteBean.direccion}"/>
-                            <p:message for="txtDireccion"/>
+                        <p:outputLabel for="txtDireccion" value="Dirección: "/>
+                        <p:inputText id="txtDireccion" value="#{clienteBean.direccion}"/>
+                        <p:message for="txtDireccion"/>
 
-                            <p:outputLabel for="txtEmail" value="Email: "/>
-                            <p:inputText id="txtEmail" value="#{clienteBean.email}"/>
-                            <p:message for="txtEmail"/>
+                        <p:outputLabel for="txtEmail" value="Email: "/>
+                        <p:inputText id="txtEmail" value="#{clienteBean.email}"/>
+                        <p:message for="txtEmail"/>
 
-                            <h:column />
-                            <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarCliente"
-                                             action="#{clienteBean.returnClienteByID()}"/>
-                            <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarCliente"
-                                             action="#{clienteBean.deleteCliente()}"/>
+                        <h:column />
+                        <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarCliente"
+                                         action="#{clienteBean.returnClienteByID()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarCliente"
+                                         action="#{clienteBean.deleteCliente()}"/>
                     </h:panelGrid>
                 </p:fieldset>
             </div>

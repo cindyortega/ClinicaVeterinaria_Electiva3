@@ -95,6 +95,15 @@ public class ClienteBean {
                 new FacesMessage("Cliente con ID " + getIdCliente() + " eliminado."));
     }
     
+    
+    public void updateCliente(){
+        Cliente newCliente = new Cliente(getIdCliente(), getNombre(), getTelefono(), getDireccion(), getEmail());
+        ClienteController clienteController = new ClienteController();
+        clienteController.updateCliente(getIdCliente(), newCliente);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Cliente actualizado correctamente."));
+    }
+    
     /**
      * @return the idCliente
      */

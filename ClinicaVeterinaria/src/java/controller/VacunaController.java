@@ -57,8 +57,30 @@ public class VacunaController {
         }
     }
     
-    public void updateVacuna (Vacuna vacuna) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateVacuna (int idVacuna, Vacuna newVacuna) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            Vacuna oldVacuna = (Vacuna) session.load(Vacuna.class, new Integer(idVacuna));
+            //Se sustituyen los datos existentes por los nuevos
+            oldVacuna.setNombreVacuna(newVacuna.getNombreVacuna());
+            oldVacuna.setDescripcion(newVacuna.getDescripcion());
+            //se actualiza
+            session.update(oldVacuna);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //Buscar vacuna por su ID

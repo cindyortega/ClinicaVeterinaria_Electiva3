@@ -57,8 +57,34 @@ public class MascotaVacunaController {
         }
     }
     
-    public void updateMascotaVacuna (MascotaVacuna mascotaVacuna) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateMascotaVacuna (int id, MascotaVacuna newMascotaVacuna) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            MascotaVacuna oldMascotaVacuna = (MascotaVacuna) session.load(MascotaVacuna.class, new Integer(id));
+            //Se sustituyen los datos existentes por los nuevos
+            oldMascotaVacuna.setMascota(newMascotaVacuna.getMascota());
+            oldMascotaVacuna.setMedicoVeterinario(newMascotaVacuna.getMedicoVeterinario());
+            oldMascotaVacuna.setVacuna(newMascotaVacuna.getVacuna());
+            oldMascotaVacuna.setNombreVacuna(newMascotaVacuna.getNombreVacuna());
+            oldMascotaVacuna.setDetallesDosis(newMascotaVacuna.getDetallesDosis());
+            oldMascotaVacuna.setFechaAplicacion(newMascotaVacuna.getFechaAplicacion());
+            //se actualiza
+            session.update(oldMascotaVacuna);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //buscar mascotaVacuna por su ID

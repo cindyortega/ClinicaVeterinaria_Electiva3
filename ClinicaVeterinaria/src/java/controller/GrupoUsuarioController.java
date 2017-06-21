@@ -57,8 +57,29 @@ public class GrupoUsuarioController {
         }
     }
     
-    public void updateGrupoUsuario (GrupoUsuario grupoUsuario) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateGrupoUsuario (int idGrupoUsuario, GrupoUsuario newGrupoUsuario) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            GrupoUsuario oldGrupoUsuario = (GrupoUsuario) session.load(GrupoUsuario.class, new Integer(idGrupoUsuario));
+            //Se sustituyen los datos existentes por los nuevos
+            oldGrupoUsuario.setNombreGrupo(newGrupoUsuario.getNombreGrupo());
+            //se actualiza
+            session.update(oldGrupoUsuario);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //Buscar grupo de usuario por su ID

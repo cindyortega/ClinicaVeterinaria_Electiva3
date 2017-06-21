@@ -28,12 +28,14 @@ public class Mascota  implements java.io.Serializable {
     }
 
 	
-    public Mascota(int idMascota, Cliente cliente, String nombre, String especie, String sexo, Date fechaNacimiento, int nroFicha) {
+    public Mascota(int idMascota, Cliente cliente, String nombre, String especie, String raza, String sexo, String color, Date fechaNacimiento, int nroFicha) {
         this.idMascota = idMascota;
         this.cliente = cliente;
         this.nombre = nombre;
         this.especie = especie;
+        this.raza = raza;
         this.sexo = sexo;
+        this.color = color;
         this.fechaNacimiento = fechaNacimiento;
         this.nroFicha = nroFicha;
     }

@@ -87,6 +87,15 @@ public class ProxVacunaBean {
                 new FacesMessage("Proxima Vacuna con ID: " + getIdProxVacuna() + " eliminada."));
     }
     
+    
+    public void updateProxVacuna(){
+        ProxVacuna newProxVacuna = new ProxVacuna(getIdProxVacuna(), getMascota(), getFechaProxVacuna(), getNombreVacuna(), getDetalles());
+        ProxVacunaController proxVacunaController = new ProxVacunaController();
+        proxVacunaController.updateProxVacuna(mascota.getIdMascota(), newProxVacuna);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Próxima Vacuna de Mascota actualizada correctamente."));
+    }
+    
     /**
      * @return the idProxVacuna
      */

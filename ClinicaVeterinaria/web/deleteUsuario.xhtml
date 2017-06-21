@@ -5,9 +5,55 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Eliminar Usuario</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Eliminar Usuario" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgEliminarUsuario">
+                        <p:outputLabel for="txtId" value="ID Usuario: "/>
+                        <p:inputText id="txtId" value="#{usuarioBean.idUsuario}" required="true"
+                                     requiredMessage="Campo requerido."/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtGrupoUsuario" value="Grupo de Usuario: "/>
+                        <p:inputText id="txtGrupoUsuario" value="#{usuarioBean.grupoUsuario}"/>
+                        <p:message for="txtGrupoUsuario"/>
+
+                        <p:outputLabel for="txtUsuario" value="Usuario: "/>
+                        <p:inputText id="txtUsuario" value="#{usuarioBean.usuario}"/>
+                        <p:message for="txtUsuario"/>
+
+                        <p:outputLabel for="txtNombre" value="Nombre: "/>
+                        <p:inputText id="txtNombre" value="#{usuarioBean.nombre}"/>
+                        <p:message for="txtNombre"/>
+
+                        <p:outputLabel for="txtApellido" value="Apellido: "/>
+                        <p:inputText id="txtApellido" value="#{usuarioBean.apellido}"/>
+                        <p:message for="txtApellido"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarUsuario"
+                                         action="#{usuarioBean.returnUsuarioByID()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarUsuario"
+                                         action="#{usuarioBean.deleteUsuario()}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

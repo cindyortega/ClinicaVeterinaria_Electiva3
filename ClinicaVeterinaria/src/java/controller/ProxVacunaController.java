@@ -57,8 +57,32 @@ public class ProxVacunaController {
         }
     }
     
-    public void updateProxVacuna (ProxVacuna proxVacuna) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateProxVacuna (int idProxVacuna, ProxVacuna newProxVacuna) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            ProxVacuna oldProxVacuna = (ProxVacuna) session.load(ProxVacuna.class, new Integer(idProxVacuna));
+            //Se sustituyen los datos existentes por los nuevos
+            oldProxVacuna.setMascota(newProxVacuna.getMascota());
+            oldProxVacuna.setFechaProxVacuna(newProxVacuna.getFechaProxVacuna());
+            oldProxVacuna.setNombreVacuna(newProxVacuna.getNombreVacuna());
+            oldProxVacuna.setDetalles(newProxVacuna.getDetalles());
+            //se actualiza
+            session.update(oldProxVacuna);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //Buscar Prox vacuna por su ID

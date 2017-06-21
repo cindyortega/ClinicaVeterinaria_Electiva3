@@ -102,6 +102,15 @@ public class MascotaVacunaBean {
                 new FacesMessage("Vacuna de Mascota con ID: " + mascota.getIdMascota() + " eliminada."));
     }
     
+    
+     public void updateMascotaVacuna(){
+        MascotaVacuna newMascotaVacuna = new MascotaVacuna(getId(), getMascota(), getMedicoVeterinario(), getVacuna(), getNombreVacuna(), getDetallesDosis(), getFechaAplicacion());
+        MascotaVacunaController mascotaVacunaController = new MascotaVacunaController();
+        mascotaVacunaController.updateMascotaVacuna(mascota.getIdMascota(), newMascotaVacuna);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Vacuna de Mascota actualizada correctamente."));
+    }
+    
     /**
      * @return the id
      */

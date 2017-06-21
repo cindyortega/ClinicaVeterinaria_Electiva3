@@ -5,9 +5,63 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Eliminar Vacuna de Mascota</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Eliminar Vacuna de Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgEliminarMascotaVacuna">
+                        <p:outputLabel for="txtId" value="ID Vacuna de la Mascota: "/>
+                        <p:inputText id="txtId" value="#{mascotaVacunaBean.id}" required="true"
+                                     requiredMessage="Campo requerido."/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtMascota" value="Mascota: "/>
+                        <p:inputText id="txtMascota" value="#{mascotaVacunaBean.mascota}"/>
+                        <p:message for="txtMascota"/>
+
+                        <p:outputLabel for="txtMedico" value="Medico Veterinario: "/>
+                        <p:inputText id="txtMedico" value="#{mascotaVacunaBean.medicoVeterinario}"/>
+                        <p:message for="txtMedico"/>
+
+                        <p:outputLabel for="txtVacuna" value="Vacuna: "/>
+                        <p:inputText id="txtVacuna" value="#{mascotaVacunaBean.vacuna}"/>
+                        <p:message for="txtVacuna"/>
+
+                        <p:outputLabel for="txtNombreVacuna" value="Nombre de la Vacuna: "/>
+                        <p:inputText id="txtNombreVacuna" value="#{mascotaVacunaBean.nombreVacuna}"/>
+                        <p:message for="txtNombreVacuna"/>
+
+                        <p:outputLabel for="txtDosis" value="Detalles Dosis: "/>
+                        <p:inputText id="txtDosis" value="#{mascotaVacunaBean.detallesDosis}"/>
+                        <p:message for="txtDosis"/> 
+
+                        <p:outputLabel for="txtFechaAplicacion" value="Fecha de Aplicación: "/>
+                        <p:inputText id="txtFechaAplicacion" value="#{mascotaVacunaBean.detallesDosis}"/>
+                        <p:message for="txtFechaAplicacion"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarMascotaVacuna"
+                                         action="#{mascotaVacunaBean.returnMascotaVacunaByID()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarMascotaVacuna"
+                                         action="#{mascotaVacunaBean.deleteMascotaVacuna()}"/> 
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

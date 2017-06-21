@@ -170,6 +170,15 @@ public class UsuarioBean {
                 new FacesMessage("Usuario con ID: " + getIdUsuario() + " eliminado."));
     }
     
+    
+    public void updateUsuario(){
+        Usuario newUsuario = new Usuario(getIdUsuario(), getGrupoUsuario(), getNombre(), getApellido(), getUsuario(), getPassword());
+        UsuarioController usuarioController = new UsuarioController();
+        usuarioController.updateUsuario(getIdUsuario(), newUsuario);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Usuario actualizado correctamente."));
+    }
+    
      /**
      * @return the idUsuario
      */

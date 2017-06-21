@@ -5,9 +5,55 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Eliminar Próxima Vacuna de Mascota</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Eliminar Próxima Vacuna de Mascota" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgEliminarProxVacuna">
+                        <p:outputLabel for="txtId" value="ID Próxima Vacuna: "/>
+                        <p:inputText id="txtId" value="#{proxVacunaBean.idProxVacuna}" required="true"
+                                     requiredMessage="Campo requerido."/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtMascota" value="Mascota: "/>
+                        <p:inputText id="txtMascota" value="#{proxVacunaBean.mascota}"/>
+                        <p:message for="txtMascota"/>
+
+                        <p:outputLabel for="txtFechaProx" value="Fecha de la Próxima Vacuna: "/>
+                        <p:inputText id="txtFechaProx" value="#{proxVacunaBean.fechaProxVacuna}"/>
+                        <p:message for="txtFechaProx"/>
+
+                        <p:outputLabel for="txtNombreVacuna" value="Nombre de la Vacuna: "/>
+                        <p:inputText id="txtNombreVacuna" value="#{proxVacunaBean.nombreVacuna}"/>
+                        <p:message for="txtNombreVacuna"/>
+
+                        <p:outputLabel for="txtDetalles" value="Detalles: "/>
+                        <p:inputText id="txtDetalles" value="#{proxVacunaBean.detalles}"/>
+                        <p:message for="txtDetalles"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarProxVacuna"
+                                         action="#{proxVacunaBean.returnProxVacunaByID()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarProxVacuna"
+                                         action="#{proxVacunaBean.deleteProxVacuna()}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

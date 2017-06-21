@@ -60,8 +60,32 @@ public class ClienteController {
                
     }
     
-    public void updateCliente (Cliente cliente) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateCliente (int idCliente, Cliente newCliente) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            Cliente oldCliente = (Cliente) session.load(Cliente.class, new Integer(idCliente));
+            //Se sustituyen los datos existentes por los nuevos
+            oldCliente.setNombre(newCliente.getNombre());
+            oldCliente.setTelefono(newCliente.getTelefono());
+            oldCliente.setDireccion(newCliente.getDireccion());
+            oldCliente.setEmail(newCliente.getEmail());
+            //se actualiza
+            session.update(oldCliente);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //Buscar Cliente por su ID

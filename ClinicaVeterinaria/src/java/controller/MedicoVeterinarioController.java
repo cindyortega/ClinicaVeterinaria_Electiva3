@@ -57,8 +57,31 @@ public class MedicoVeterinarioController {
         }
     }
     
-    public void updateMedicoVeterinario (MedicoVeterinario medicoVeterinario) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateMedicoVeterinario (int idMedicoVeterinario, MedicoVeterinario newMedicoVeterinario) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            MedicoVeterinario oldMedicoVeterinario = (MedicoVeterinario) session.load(MedicoVeterinario.class, new Integer(idMedicoVeterinario));
+            //Se sustituyen los datos existentes por los nuevos
+            oldMedicoVeterinario.setNombre(newMedicoVeterinario.getNombre());
+            oldMedicoVeterinario.setApellido(newMedicoVeterinario.getApellido());
+            oldMedicoVeterinario.setNroRegistro(newMedicoVeterinario.getNroRegistro());
+            //se actualiza
+            session.update(oldMedicoVeterinario);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //Buscar medico por su ID

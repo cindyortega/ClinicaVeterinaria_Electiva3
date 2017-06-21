@@ -74,8 +74,33 @@ public class UsuarioController {
         }
     }
     
-    public void updateUsuario (Usuario usuario) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateUsuario (int idUsuario, Usuario newUsuario) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            Usuario oldUsuario = (Usuario) session.load(Usuario.class, new Integer(idUsuario));
+            //Se sustituyen los datos existentes por los nuevos
+            oldUsuario.setGrupoUsuario(newUsuario.getGrupoUsuario());
+            oldUsuario.setUsuario(newUsuario.getUsuario());
+            oldUsuario.setNombre(newUsuario.getNombre());
+            oldUsuario.setApellido(newUsuario.getApellido());
+            oldUsuario.setPassword(newUsuario.getPassword());
+            //se actualiza
+            session.update(oldUsuario);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //buscar usuario por su ID

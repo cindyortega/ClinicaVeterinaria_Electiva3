@@ -72,6 +72,15 @@ public class GrupoUsuarioBean {
                 new FacesMessage("Grupo de Usuario con ID: " + getIdGrupo() + " eliminado."));
     }
     
+    
+    public void updateGrupoUsuario(){
+        GrupoUsuario newGrupoUsuario = new GrupoUsuario(getIdGrupo(), getNombreGrupo());
+        GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
+        grupoUsuarioController.updateGrupoUsuario(getIdGrupo(), newGrupoUsuario);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Grupo de Usuario actualizado correctamente."));
+    }
+    
     /**
      * @return the idGrupo
      */

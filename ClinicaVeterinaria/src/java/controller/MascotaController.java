@@ -58,8 +58,36 @@ public class MascotaController {
         }
     }
     
-    public void updateMascota (Mascota mascota) {
-        
+    //Recibe el id del registro a modificar, y los nuevos datos del objeto.
+    public void updateMascota (int idMascota, Mascota newMascota) {
+        Transaction trns = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            trns = session.beginTransaction();
+            //Se obtiene los datos existentes (x.class) en un objeto separado (oldX)
+            Mascota oldMascota = (Mascota) session.load(Mascota.class, new Integer(idMascota));
+            //Se sustituyen los datos existentes por los nuevos
+            oldMascota.setCliente(newMascota.getCliente());
+            oldMascota.setNombre(newMascota.getNombre());
+            oldMascota.setEspecie(newMascota.getEspecie());
+            oldMascota.setRaza(newMascota.getRaza());
+            oldMascota.setSexo(newMascota.getSexo());
+            oldMascota.setColor(newMascota.getColor());
+            oldMascota.setFechaNacimiento(newMascota.getFechaNacimiento());
+            oldMascota.setNroFicha(newMascota.getNroFicha());
+            //se actualiza
+            session.update(oldMascota);
+            trns.commit();
+        } catch(RuntimeException e){
+            e.printStackTrace();
+            if (trns != null){
+                trns.rollback();
+            }
+            e.printStackTrace();
+        } finally{
+            session.flush();
+            session.close();
+        }
     }
     
     //buscar mascota por su ID

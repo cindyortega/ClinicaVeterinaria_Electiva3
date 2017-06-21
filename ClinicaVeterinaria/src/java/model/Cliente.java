@@ -27,6 +27,16 @@ public class Cliente  implements java.io.Serializable {
         this.nombre = nombre;
         this.telefono = telefono;
     }
+    
+    //yo agrego este metodo
+     public Cliente(int idCliente, String nombre, String telefono,String direccion, String email) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.email = email;
+    }
+     
     public Cliente(int idCliente, String nombre, String telefono, String direccion, String email, Set mascotas) {
        this.idCliente = idCliente;
        this.nombre = nombre;

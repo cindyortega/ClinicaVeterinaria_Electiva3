@@ -5,9 +5,51 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Eliminar Médico Veterinario</title>
+        <style>
+            body {
+                background-image: url("#{resource['images/image8.png']}");
+                background-size: cover;
+                background-repeat: no-repeat; 
+                background-attachment:fixed;
+
+            }
+        </style>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
+            <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
+        </p:panel>
+        <h:form>
+            <p:messages id="mensaje" autoUpdate="false" style="blue" />
+            <div align="center">
+                <p:fieldset legend="Eliminar Médico Veterinario" style="width:350pt">
+                    <h:panelGrid columns="3" id="pgEliminarMedico">
+                        <p:outputLabel for="txtId" value="ID Médico Veterinario: "/>
+                        <p:inputText id="txtId" value="#{medicoVeterinarioBean.idMedico}" required="true"
+                                     requiredMessage="Campo requerido."/>
+                        <p:message for="txtId"/>
+
+                        <p:outputLabel for="txtNombre" value="Nombre: "/>
+                        <p:inputText id="txtNombre" value="#{medicoVeterinarioBean.nombre}"/>
+                        <p:message for="txtNombre"/>
+
+                        <p:outputLabel for="txtApellido" value="Apellido: "/>
+                        <p:inputText id="txtApellido" value="#{medicoVeterinarioBean.apellido}"/>
+                        <p:message for="txtApellido"/>
+
+                        <p:outputLabel for="txtNroRegistro" value="Nro. de Registro: "/>
+                        <p:inputText id="txtNroRegistro" value="#{medicoVeterinarioBean.nroRegistro}"/>
+                        <p:message for="txtNroRegistro"/>
+
+                        <h:column />
+                        <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarMedico"
+                                         action="#{medicoVeterinarioBean.returnMedicoVeterinarioByID()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarMedico"
+                                         actionListener="#{medicoVeterinarioBean.deleteMedicoVeterinario()}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </div>
+        </h:form>
     </h:body>
 </html>
 

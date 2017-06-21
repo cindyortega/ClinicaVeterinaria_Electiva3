@@ -78,6 +78,15 @@ public class VacunaBean {
                 new FacesMessage("Vacuna con ID: " + getIdVacuna() + " eliminada."));
     }
     
+    
+    public void updateVacuna(){
+        Vacuna newVacuna = new Vacuna(getIdVacuna(), getNombreVacuna(), getDescripcion());
+        VacunaController vacunaController = new VacunaController();
+        vacunaController.updateVacuna(idVacuna, newVacuna);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Vacuna actualizada correctamente."));
+    }
+    
     /**
      * @return the idVacuna
      */

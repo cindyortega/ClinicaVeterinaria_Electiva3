@@ -83,6 +83,15 @@ public class MedicoVeterinarioBean {
                 new FacesMessage("Médico Veterinario con ID: " + getIdMedico() + " eliminado."));
     }
     
+    
+    public void updateMedicoVeterinario(){
+        MedicoVeterinario newMedicoVeterinario = new MedicoVeterinario(getIdMedico(), getNombre(), getApellido(),getNroRegistro());
+        MedicoVeterinarioController medicoVeterinarioController = new MedicoVeterinarioController();
+        medicoVeterinarioController.updateMedicoVeterinario(idMedico, newMedicoVeterinario);
+        FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage("Médico Veterinario actualizado correctamente."));
+    }
+    
     /**
      * @return the idMedico
      */
