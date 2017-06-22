@@ -43,7 +43,23 @@
                     </p:panel>
 
                     <br></br>
+                    
+                     <p:panel header="Actualizar">
+                        <p:link outcome="updateCliente" value="Actualizar Cliente" /> <br/>
+                        <p:link outcome="updateMascota" value="Actualizar Mascota" /> <br/>
+                        <p:link outcome="updateMedicoVeterinario" value="Actualizar Médico Veterinario" /> <br/>
+                        <p:link outcome="updateVacuna" value="Actualizar Vacuna" /> <br/>
+                        
+                    </p:panel>
 
+                    <br></br>
+                    
+                    <p:panel header="Agenda para llamadas del día">
+                        <p:link outcome="getListProxVacuna" value="Lista de Próximas Vacunaciones"/> <br/>
+                    </p:panel>
+                    
+                    <br></br>
+                    
                     <p:commandButton value="Cerrar Sesión" actionListener="#{usuarioBean.cerrarSesion()}" 
                                      action="/index?faces-redirect=true" icon="ui-icon-power"/>
                 </p:fieldset>

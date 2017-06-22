@@ -51,6 +51,14 @@ public class UsuarioController {
             throw e;
         }
         return us;
+        /*
+        desde el if se cambia
+        query.setParameter("usuario", usuario);
+        query.setParameter("password", password);
+        us = (Usuario) query.uniqueResult();
+            
+        
+        */
     }
     
     public void deleteUsuario (int idUsuario) {
