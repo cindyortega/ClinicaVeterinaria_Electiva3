@@ -35,7 +35,7 @@ public class VacunaBean {
     }
     
      public void addVacuna(){
-        Vacuna vacuna = new Vacuna (getIdVacuna(), getNombreVacuna(), getDescripcion(), getMascotaVacunas());
+        Vacuna vacuna = new Vacuna (getIdVacuna(), getNombreVacuna(), getDescripcion());
         VacunaController vacunaController = new VacunaController();
         vacunaController.addVacuna(vacuna);
     }

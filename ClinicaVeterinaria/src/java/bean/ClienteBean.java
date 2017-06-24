@@ -38,7 +38,7 @@ public class ClienteBean {
     }
     
     public void addCliente(){
-        Cliente cliente = new Cliente (getIdCliente(), getNombre(), getTelefono(), getDireccion(), getEmail(), getMascotas());
+        Cliente cliente = new Cliente (getIdCliente(), getNombre(), getTelefono(), getDireccion(), getEmail());
         ClienteController clienteController = new ClienteController();
         clienteController.addCliente(cliente);
         

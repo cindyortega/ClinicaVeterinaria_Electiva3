@@ -24,7 +24,7 @@
         <div align="center">
             <h:form>
                 <p:fieldset legend="Menú" style="width:350pt">
-                    <p:panel header="Agregar">
+                    <p:panel header="Agregar" toggleable="true">
                         <p:link outcome="addUsuario" value="Registrar Usuario"/> <br/>
                         <p:link outcome="addCliente" value="Agregar Cliente" /> <br/>
                         <p:link outcome="addMascota" value="Agregar Mascota" /> <br/>
@@ -37,7 +37,7 @@
                     
                     <br></br>
                     
-                    <p:panel header="Buscar">
+                    <p:panel header="Buscar" toggleable="true">
                         <p:link outcome="getClienteByID" value="Buscar Cliente" /> <br/> 
                         <p:link outcome="getMascotaByID" value="Buscar Mascota" /> <br/>
                         <p:link outcome="getMascotaVacunaByID" value="Buscar Vacuna de Mascota" /> <br/>
@@ -51,7 +51,7 @@
                     
                     <br></br>
                     
-                    <p:panel header="Actualizar">
+                    <p:panel header="Actualizar" toggleable="true">
                         <p:link outcome="updateCliente" value="Actualizar Cliente" /> <br/>
                         <p:link outcome="updateMascota" value="Actualizar Mascota" /> <br/>
                         <p:link outcome="updateMascotaVacuna" value="Actualizar Vacuna de Mascota" /> <br/>
@@ -65,7 +65,7 @@
                     
                     <br></br>
                     
-                    <p:panel header="Eliminar">
+                    <p:panel header="Eliminar" toggleable="true">
                         <p:link outcome="deleteCliente" value="Eliminar Cliente" /> <br/>
                         <p:link outcome="deleteMascota" value="Eliminar Mascota" /> <br/>
                         <p:link outcome="deleteMascotaVacuna" value="Eliminar Vacuna de Mascota" /> <br/>

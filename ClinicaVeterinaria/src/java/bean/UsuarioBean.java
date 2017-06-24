@@ -33,6 +33,8 @@ public class UsuarioBean {
      private String nombre;
      private String apellido;
      private String password;
+     
+     private Usuario user;
     
     public UsuarioBean() {
     }
@@ -50,7 +52,7 @@ public class UsuarioBean {
         }
     }
     
-    public String verificarDatos (){
+    public String verificarDatos () throws Exception{
         //Verifica los datos para el login
         UsuarioController usuarioController = new UsuarioController();
         Usuario us;
@@ -58,7 +60,9 @@ public class UsuarioBean {
         try {
             //aca necesito un tipo de dato usuario, y solo encuentra string
             //Solucione: cambie los parametros de verificarDatos del controlador
-             us = usuarioController.verificarDatos(this.usuario, this.password);
+            //, this.password --- agregue user del tipo usuario para corregir de vuelta
+            
+             us = usuarioController.verificarDatos(this.user);
              if(us != null){
                  FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
                  resultado = "exito";

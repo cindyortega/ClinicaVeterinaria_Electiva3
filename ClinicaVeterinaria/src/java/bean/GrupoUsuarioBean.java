@@ -34,7 +34,7 @@ public class GrupoUsuarioBean {
     }
 
     public void addGrupoUsuario(){
-        GrupoUsuario grupoUsuario = new GrupoUsuario (getIdGrupo(), getNombreGrupo(), getUsuarios());
+        GrupoUsuario grupoUsuario = new GrupoUsuario (getIdGrupo(), getNombreGrupo());
         GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
         grupoUsuarioController.addGrupoUsuario(grupoUsuario);
     }

@@ -34,7 +34,7 @@
 
                         <p:outputLabel for="txtCliente" value="Cliente"/>
                         <p:inputText id="txtCliente" value="#{mascotaBean.cliente.idCliente}" required="true"
-                                     requiredMessage="Campo Requerido"/>
+                                     requiredMessage="Campo Requerido" converter="javax.faces.Integer"/>
                         <p:message for="txtCliente"/>
 
                         <p:outputLabel for="txtNombre" value="Nombre"/>

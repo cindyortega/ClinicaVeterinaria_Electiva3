@@ -45,10 +45,6 @@
                                      requiredMessage="Campo Requerido"/>
                         <p:message for="txtNroRegistro"/>
 
-                        <p:outputLabel for="txtMascotaVacuna" value="Mascota Vacuna: "/>
-                        <p:inputText id="txtMascotaVacuna" value="#{medicoVeterinarioBean.mascotaVacunas}" required="false"/>
-                        <p:message for="txtMascotaVacuna"/>
-
                         <h:column />
                         <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddMedico"
                                          actionListener="#{medicoVeterinarioBean.addMedicoVeterinario()}"/>
@@ -60,4 +56,10 @@
         </h:form>
     </h:body>
 </html>
+
+<!--  estaba abajo de registro
+<p:outputLabel for="txtMascotaVacuna" value="Mascota Vacuna: "/>
+                        <p:inputText id="txtMascotaVacuna" value="#{medicoVeterinarioBean.mascotaVacunas}" required="false"/>
+                        <p:message for="txtMascotaVacuna"/>
+-->
 

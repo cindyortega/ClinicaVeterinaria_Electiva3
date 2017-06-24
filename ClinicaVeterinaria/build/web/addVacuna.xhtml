@@ -39,10 +39,6 @@
                                      requiredMessage="Campo Requerido."/>
                         <p:message for="txtDescripcion"/>
 
-                        <p:outputLabel for="txtMascotaVacunas" value="Mascota Vacunas: "/>
-                        <p:inputText id="txtMascotaVacunas" value="#{vacunaBean.mascotaVacunas}" required="false"/>
-                        <p:message for="txtMascotaVacunas"/>
-
                         <h:column />
                         <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddMascotaVacunas"
                                          actionListener="#{vacunaBean.addVacuna()}"/>
@@ -54,3 +50,8 @@
     </h:body>
 </html>
 
+<!-- esto estaba abajo de descripcion
+<p:outputLabel for="txtMascotaVacunas" value="Mascota Vacunas: "/>
+                        <p:inputText id="txtMascotaVacunas" value="#{vacunaBean.mascotaVacunas}" required="false"
+                                     disabled="true"/>
+                        <p:message for="txtMascotaVacunas"/> -->

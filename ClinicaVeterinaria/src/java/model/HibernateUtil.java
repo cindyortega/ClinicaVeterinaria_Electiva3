@@ -40,7 +40,8 @@ public class HibernateUtil {
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) { // loads configuration and mappings 
-            Configuration configuration = new Configuration().configure();
+            //el configure estaba vacio asi configure()
+            Configuration configuration = new Configuration().configure("/<default package>/hibernate.cfg.xml");
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 
             // builds a session factory from the service registry sessionFactory =

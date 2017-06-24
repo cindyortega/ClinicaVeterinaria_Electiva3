@@ -34,10 +34,6 @@
                                      requiredMessage="Campo Requerido."/>
                         <p:message for="txtNombre"/>
 
-                        <p:outputLabel for="txtUsuario" value="Usuario: " />
-                        <p:inputText id="txtUsuario" value="#{grupoUsuarioBean.usuarios}" required="false"/>
-                        <p:message for="txtUsuario"/>
-
                         <h:column />
                         <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddGrupoUsuario"
                                          actionListener="#{grupoUsuarioBean.addGrupoUsuario()}"/>
@@ -48,4 +44,11 @@
         </h:form>
     </h:body>
 </html>
+
+<!--estaba abajo de nombreusuario
+
+                        <p:outputLabel for="txtUsuario" value="Usuario: " />
+                        <p:inputText id="txtUsuario" value="#{grupoUsuarioBean.usuarios}" required="false"/>
+                        <p:message for="txtUsuario"/>
+-->
 

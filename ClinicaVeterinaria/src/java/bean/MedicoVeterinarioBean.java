@@ -36,7 +36,7 @@ public class MedicoVeterinarioBean {
     }
 
     public void addMedicoVeterinario(){
-        MedicoVeterinario medicoVeterinario = new MedicoVeterinario (getIdMedico(), getNombre(), getApellido(), getNroRegistro(), getMascotaVacunas());
+        MedicoVeterinario medicoVeterinario = new MedicoVeterinario (getIdMedico(), getNombre(), getApellido(), getNroRegistro());
         MedicoVeterinarioController medicoVeterinarioController = new MedicoVeterinarioController();
         medicoVeterinarioController.addMedicoVeterinario(medicoVeterinario);
     }
