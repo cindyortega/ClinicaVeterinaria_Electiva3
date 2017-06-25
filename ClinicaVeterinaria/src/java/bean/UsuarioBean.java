@@ -57,6 +57,7 @@ public class UsuarioBean {
         UsuarioController usuarioController = new UsuarioController();
         Usuario us;
         String resultado;
+        int grupo;
         try {
             //aca necesito un tipo de dato usuario, y solo encuentra string
             //Solucione: cambie los parametros de verificarDatos del controlador
@@ -70,14 +71,20 @@ public class UsuarioBean {
                  resultado = "index";
              }
              
-             if ("exito".equals(resultado)){        //resultado == "exito"
-                 if (verificarPermisos1()){
+            if ("exito".equals(resultado) && us != null){        //resultado == "exito"
+                grupo = us.getGrupoUsuario().getIdGrupo() ;
+                if(grupo == 1){
+                    resultado = "menu1?faces-redirect=true";
+                } else {
+                    resultado = "menu2?faces-redirect=true";
+                }
+                 /*if (verificarPermisos1()){
                      resultado = "menu1?faces-redirect=true";
                  }
                  if (verificarPermisos2()){
                     resultado = "menu2?faces-redirect=true";
-                }
-             }
+                }*/
+            }
         } catch(Exception e){
             throw e;
         } finally{
@@ -107,7 +114,8 @@ public class UsuarioBean {
         return "index";
     }
     
-    //no se si esto esta bien, pero la idea es renderizar en cada menu
+    /*
+    //no se si esto esta bien, pero la idea es renderizar en cada menu,
     public boolean verificarPermisos1(){
         boolean bandera = false;
         Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
@@ -127,7 +135,7 @@ public class UsuarioBean {
         }
         return bandera;
     }
-    
+    */
     
     //es el metodo getUsuarioByID, pero se usa Return aca para no confundir con los getters
     public void returnUsuarioByID(){

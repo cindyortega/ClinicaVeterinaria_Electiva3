@@ -41,11 +41,11 @@ public class UsuarioController {
         Usuario us = new Usuario(usuario, password);
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            String hql = "FROM usuario WHERE usuario = '" + usuario
-                    + "' AND password = '" + password + "'";
+            String hql = "from Usuario where usuario = '" + usuario
+                    + "' and password = '" + password + "'";
             Query query = session.createQuery(hql);
             
-            if(query.list().isEmpty()) {
+            if(!query.list().isEmpty()) {
                 us = (Usuario) query.list().get(0);
             } 
         } catch (Exception e){

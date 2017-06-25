@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/controller/UsuarioController.java</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/bean/UsuarioBean.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/model/Usuario.java</file>
+            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/model/HibernateUtil.java</file>
-            <file>file:/C:/Users/usuario/Documents/NetBeansProjects/ClinicaVeterinaria/ClinicaVeterinaria/src/java/bean/MascotaBean.java</file>
         </group>
     </open-files>
 </project-private>

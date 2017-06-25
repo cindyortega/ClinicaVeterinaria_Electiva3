@@ -17,12 +17,17 @@
         </style>
     </h:head>
     <h:body>
-         <!--ahora solo se va a ver si se inicia sesion porque esta renderizado, rendered="#{usuarioBean.verificarSesion()}"-->
+         <!--ahora solo se va a ver si se inicia sesion porque esta renderizado-->
         <p:panel header="Clinica Veterinaria" style="margin-bottom:20px;text-align:center">
             <p:graphicImage value="#{FacesContext.getCurrentInstance().getExternalContext()}/resources/images/Logotipo.png" height="50" dir="rtl" />
         </p:panel>
+        
+         <p:fieldset style="width:150pt">         
+            <p:outputLabel value="Bienvenid@: #{usuarioBean.usuario}"/>
+         </p:fieldset>
+         <br/>
         <div align="center">
-            <h:form>
+            <h:form rendered="#{usuarioBean.verificarSesion()}">
                 <p:fieldset legend="Menú" style="width:350pt">
                     <p:panel header="Agregar" toggleable="true">
                         <p:link outcome="addUsuario" value="Registrar Usuario"/> <br/>
