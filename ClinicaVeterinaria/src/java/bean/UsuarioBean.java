@@ -34,7 +34,7 @@ public class UsuarioBean {
      private String apellido;
      private String password;
      
-     private Usuario user;
+    //private Usuario user;
     
     public UsuarioBean() {
     }
@@ -62,7 +62,7 @@ public class UsuarioBean {
             //Solucione: cambie los parametros de verificarDatos del controlador
             //, this.password --- agregue user del tipo usuario para corregir de vuelta
             
-             us = usuarioController.verificarDatos(this.user);
+             us = usuarioController.verificarDatos(this.usuario, this.password);
              if(us != null){
                  FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", us);
                  resultado = "exito";

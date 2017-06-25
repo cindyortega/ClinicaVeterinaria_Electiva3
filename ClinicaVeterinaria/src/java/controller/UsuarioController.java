@@ -37,17 +37,17 @@ public class UsuarioController {
     }
      
      //(String usuario, String password)
-    public Usuario verificarDatos(Usuario usuario) throws Exception{
-        Usuario us = null;
+    public Usuario verificarDatos(String usuario, String password) throws Exception{
+        Usuario us = new Usuario(usuario, password);
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            String hql = "FROM usuario WHERE usuario = " + usuario.getUsuario()
-                    + "AND password = " + usuario.getPassword() + ";";
+            String hql = "FROM usuario WHERE usuario = '" + usuario
+                    + "' AND password = '" + password + "'";
             Query query = session.createQuery(hql);
             
             if(query.list().isEmpty()) {
                 us = (Usuario) query.list().get(0);
-            }
+            } 
         } catch (Exception e){
             throw e;
         }
