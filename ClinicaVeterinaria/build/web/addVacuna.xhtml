@@ -23,7 +23,7 @@
             <p:messages id="mensaje" autoUpdate="false" />
             <div align="center">
                 <p:fieldset legend="Agregar Vacuna" style="width:300pt">
-                    <h:panelGrid columns="3" id="pgAddMascotaVacunas">
+                    <h:panelGrid columns="3" id="pgAddVacuna">
                         <p:outputLabel for="txtId" value="ID Vacuna: "/>
                         <p:inputText id="txtId" value="#{vacunaBean.idVacuna}" required="true" 
                                      requiredMessage="Campo Requerido."/>
@@ -40,8 +40,10 @@
                         <p:message for="txtDescripcion"/>
 
                         <h:column />
-                        <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddMascotaVacunas" ajax ="false"
+                        <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddVacuna" ajax ="false"
                                          actionListener="#{vacunaBean.addVacuna()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgAddVacuna"
+                                         action="#{vacunaBean.limpiarDatos()}"/>
                     </h:panelGrid>
 
                 </p:fieldset>

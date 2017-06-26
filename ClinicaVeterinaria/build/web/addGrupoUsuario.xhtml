@@ -22,7 +22,7 @@
         <h:form>
             <p:messages id="mensaje" autoUpdate="false" />
             <div align="center">
-                <p:fieldset legend="Agregar Grupo de Usuario" style="width:300pt">
+                <p:fieldset legend="Agregar Grupo de Usuario" style="width:350pt">
                     <h:panelGrid columns="3" id="pgAddGrupoUsuario">
                         <p:outputLabel for="txtId" value="ID Grupo Usuario: "/>
                         <p:inputText id="txtId" value="#{grupoUsuarioBean.idGrupo}" required="true" 
@@ -37,6 +37,8 @@
                         <h:column />
                         <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddGrupoUsuario" ajax ="false"
                                          actionListener="#{grupoUsuarioBean.addGrupoUsuario()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgAddGrupoUsuario"
+                                         action="#{grupoUsuarioBean.limpiarDatos()}"/>
                     </h:panelGrid>
 
                 </p:fieldset>
@@ -44,11 +46,3 @@
         </h:form>
     </h:body>
 </html>
-
-<!--estaba abajo de nombreusuario
-
-                        <p:outputLabel for="txtUsuario" value="Usuario: " />
-                        <p:inputText id="txtUsuario" value="#{grupoUsuarioBean.usuarios}" required="false"/>
-                        <p:message for="txtUsuario"/>
--->
-

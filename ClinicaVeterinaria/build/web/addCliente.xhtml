@@ -51,6 +51,8 @@
                         <h:column />
                         <p:commandButton icon="ui-icon-disk" value="Guardar" update="pgAddCliente" ajax ="false"
                                          actionListener="#{clienteBean.addCliente()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgAddCliente"
+                                             action="#{clienteBean.limpiarDatos()}"/>
 
                     </h:panelGrid>
                 </p:fieldset>

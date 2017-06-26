@@ -28,23 +28,23 @@
                              {PageLinks} {LastPageLink} {RowsPerPageDropdown}"
                              rowsPerPageTemplate="10">
                     <p:column headerText="ID Próxima Vacuna">
-                        <h:outputText value="#{proxVacunaBean.idProxVacuna}"/>
+                        <h:outputText value="#{proxVacuna.idProxVacuna}"/>
                     </p:column>
                     
                     <p:column headerText="Mascota">
-                        <h:outputText value="#{proxVacunaBean.mascota.nombre}"/>
+                        <h:outputText value="#{proxVacuna.mascota.nombre}"/>
                     </p:column>
                     
                     <p:column headerText="Fecha de la Próxima Vacuna">
-                        <h:outputText value="#{proxVacunaBean.fechaProxVacuna}"/>
+                        <h:outputText value="#{proxVacuna.fechaProxVacuna}"/>
                     </p:column>
                     
                     <p:column headerText="Nombre de la Vacuna">
-                        <h:outputText value="#{proxVacunaBean.nombreVacuna}"/>
+                        <h:outputText value="#{proxVacuna.nombreVacuna}"/>
                     </p:column>
                     
                      <p:column headerText="Detalles">
-                         <h:outputText value="#{proxVacunaBean.detalles}"/>
+                         <h:outputText value="#{proxVacuna.detalles}"/>
                     </p:column>
                     
                 </p:dataTable>
