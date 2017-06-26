@@ -119,7 +119,7 @@ public class UsuarioController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from usuario where id_usuario = :idToFind";
+            String queryString = "from Usuario where id_usuario = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idUsuario);
             usuario = (Usuario) query.uniqueResult();

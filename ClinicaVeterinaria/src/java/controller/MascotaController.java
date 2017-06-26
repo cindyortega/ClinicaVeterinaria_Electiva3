@@ -97,7 +97,7 @@ public class MascotaController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from mascota where id_mascota = :idToFind";
+            String queryString = "from Mascota where id_mascota = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idMascota);
             mascota = (Mascota) query.uniqueResult();

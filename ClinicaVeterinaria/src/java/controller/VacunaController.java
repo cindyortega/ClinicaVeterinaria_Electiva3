@@ -90,7 +90,7 @@ public class VacunaController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from vacuna where id_vacuna = :idToFind";
+            String queryString = "from Vacuna where id_vacuna = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idVacuna);
             vacuna = (Vacuna) query.uniqueResult();

@@ -95,7 +95,7 @@ public class ProxVacunaController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from prox_vacuna where id_prox_vacuna = :idToFind";
+            String queryString = "from ProxVacuna where id_prox_vacuna = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idProxVacuna);
             proxVacuna = (ProxVacuna) query.uniqueResult();
@@ -115,7 +115,7 @@ public class ProxVacunaController {
         List<ProxVacuna> lista = null;
         try {
             session = HibernateUtil.getSessionFactory().openSession();
-            Query query = session.createQuery("from prox_vacuna where fecha_prox_vacuna - CAST('2 days' AS INTERVAL) =  date('today')");
+            Query query = session.createQuery("from ProxVacuna where fecha_prox_vacuna - CAST('2 days' AS INTERVAL) =  date('today')");
             lista = (List<ProxVacuna>) query.list();
         } catch (HibernateException e) {
             System.out.println(e.getMessage());

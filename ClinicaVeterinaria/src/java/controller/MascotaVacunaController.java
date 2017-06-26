@@ -95,7 +95,7 @@ public class MascotaVacunaController {
         try {
             trns = session.beginTransaction();
             //aca ver como poner porque tiene dos claves, falta id_vacuna
-            String queryString = "from mascota_vacuna where id_mascota = :idToFind";
+            String queryString = "from MascotaVacuna where id_mascota = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", id);
             mascotaVacuna = (MascotaVacuna) query.uniqueResult();

@@ -89,7 +89,7 @@ public class GrupoUsuarioController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from grupo_usuario where id_grupo = :idToFind";
+            String queryString = "from GrupoUsuario where id_grupo = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idGrupoUsuario);
             grupoUsuario = (GrupoUsuario) query.uniqueResult();

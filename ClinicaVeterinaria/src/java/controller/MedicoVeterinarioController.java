@@ -91,7 +91,7 @@ public class MedicoVeterinarioController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from medico_veterinario where id_medico = :idToFind";
+            String queryString = "from MedicoVeterinario where id_medico = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idMedicoVeterinario);
             medicoVeterinario = (MedicoVeterinario) query.uniqueResult();

@@ -95,7 +95,7 @@ public class ClienteController {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             trns = session.beginTransaction();
-            String queryString = "from cliente where id_cliente = :idToFind";
+            String queryString = "from Cliente where id_cliente = :idToFind";
             Query query = session.createQuery(queryString);
             query.setInteger("idToFind", idCliente);
             cliente = (Cliente) query.uniqueResult();
