@@ -33,11 +33,12 @@
                         <p:inputText id="txtNombre" value="#{grupoUsuarioBean.nombreGrupo}"/>
                         <p:message for="txtNombre"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarGrupo"
                                          action="#{grupoUsuarioBean.returnGrupoUsuarioByID()}"/>
                         <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarGrupo"
                                          action="#{grupoUsuarioBean.deleteGrupoUsuario()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarGrupo"
+                                         action="#{grupoUsuarioBean.limpiarDatos()}"/>
 
                     </h:panelGrid>
                 </p:fieldset>

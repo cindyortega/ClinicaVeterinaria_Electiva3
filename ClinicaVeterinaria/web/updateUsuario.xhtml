@@ -50,6 +50,8 @@
                                          action="#{usuarioBean.returnUsuarioByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarUsuario"
                                          action="#{usuarioBean.updateUsuario()}"/> 
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarUsuario"
+                                         action="#{usuarioBean.limpiarDatos()}"/> <!--No limpia  porque no puede convertir-->
                     </h:panelGrid>
                 </p:fieldset>
             </div>

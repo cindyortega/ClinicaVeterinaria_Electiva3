@@ -45,11 +45,12 @@
                         <p:inputText id="txtDetalles" value="#{proxVacunaBean.detalles}"/>
                         <p:message for="txtDetalles"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarProxVacuna"
                                          action="#{proxVacunaBean.returnProxVacunaByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarProxVacuna"
-                                         action="#{proxVacunaBean.updateProxVacuna()}"/><!--No limpia porque no puede convertir-->
+                                         action="#{proxVacunaBean.updateProxVacuna()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarProxVacuna"
+                                         action="#{proxVacunaBean.limpiarDatos()}"/><!--No limpia porque no puede convertir-->
                     </h:panelGrid>
                 </p:fieldset>
             </div>

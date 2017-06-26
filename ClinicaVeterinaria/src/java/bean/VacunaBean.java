@@ -38,6 +38,7 @@ public class VacunaBean {
         Vacuna vacuna = new Vacuna (getIdVacuna(), getNombreVacuna(), getDescripcion());
         VacunaController vacunaController = new VacunaController();
         vacunaController.addVacuna(vacuna);
+        //FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso éxito.", "Datos guardados."));
     }
 
      

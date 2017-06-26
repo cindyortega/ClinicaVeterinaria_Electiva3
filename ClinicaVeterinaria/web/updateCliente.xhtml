@@ -45,11 +45,12 @@
                         <p:inputText id="txtEmail" value="#{clienteBean.email}"/>
                         <p:message for="txtEmail"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgUpdateCliente"
                                          action="#{clienteBean.returnClienteByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgUpdateCliente"
                                          action="#{clienteBean.updateCliente()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgUpdateCliente"
+                                             action="#{clienteBean.limpiarDatos()}"/>
                     </h:panelGrid>
                 </p:fieldset>
             </div>

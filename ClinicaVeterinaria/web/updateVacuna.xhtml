@@ -37,11 +37,12 @@
                         <p:inputText id="txtDescripcion" value="#{vacunaBean.descripcion}"/>
                         <p:message for="txtDescripcion"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarVacuna"
                                          action="#{vacunaBean.returnVacunaByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarVacuna"
                                          action="#{vacunaBean.updateVacuna()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarVacuna"
+                                         action="#{vacunaBean.limpiarDatos()}"/>
                     </h:panelGrid>
                 </p:fieldset>
             </div>

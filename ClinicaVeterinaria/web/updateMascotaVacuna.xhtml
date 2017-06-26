@@ -53,11 +53,12 @@
                         <p:inputText id="txtFechaAplicacion" value="#{mascotaVacunaBean.detallesDosis}"/>
                         <p:message for="txtFechaAplicacion"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarMascotaVacuna"
                                          action="#{mascotaVacunaBean.returnMascotaVacunaByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarMascotaVacuna"
-                                         action="#{mascotaVacunaBean.updateMascotaVacuna()}"/> <!--No limpia porque no puede convertir-->
+                                         action="#{mascotaVacunaBean.updateMascotaVacuna()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarMascotaVacuna"
+                                         action="#{mascotaVacunaBean.limpiarDatos()}"/> <!--No limpia porque no puede convertir-->
                     </h:panelGrid>
                 </p:fieldset>
             </div>

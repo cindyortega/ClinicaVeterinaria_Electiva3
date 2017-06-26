@@ -61,11 +61,12 @@
                         <p:inputText id="txtNroFicha" value="#{mascotaBean.nroFicha}"/>
                         <p:message for="txtNroFicha"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarMascota"
                                          action="#{mascotaBean.returnMascotaByID()}"/>
                         <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarMascota"
                                          action="#{mascotaBean.deleteMascota()}"/> 
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarMascota"
+                                         action="#{mascotaBean.limpiarDatos()}"/> <!--No limpia porque no puede convertir string a objeto-->
                     </h:panelGrid>
                 </p:fieldset>
             </div>

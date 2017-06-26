@@ -41,11 +41,12 @@
                         <p:inputText id="txtNroRegistro" value="#{medicoVeterinarioBean.nroRegistro}"/>
                         <p:message for="txtNroRegistro"/>
 
-                        <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarMedico"
                                          action="#{medicoVeterinarioBean.returnMedicoVeterinarioByID()}"/>
                         <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarMedico"
                                          actionListener="#{medicoVeterinarioBean.updateMedicoVeterinario()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarMedico"
+                                         actionListener="#{medicoVeterinarioBean.limpiarDatos()}"/>
                     </h:panelGrid>
                 </p:fieldset>
             </div>
