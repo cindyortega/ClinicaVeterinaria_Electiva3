@@ -38,6 +38,8 @@ public class VacunaBean {
         Vacuna vacuna = new Vacuna (getIdVacuna(), getNombreVacuna(), getDescripcion());
         VacunaController vacunaController = new VacunaController();
         vacunaController.addVacuna(vacuna);
+        FacesMessage msg = new FacesMessage("Vacuna guardada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
         //FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso éxito.", "Datos guardados."));
     }
 
@@ -74,9 +76,11 @@ public class VacunaBean {
         vacunaController.deleteVacuna(getIdVacuna());
         setNombreVacuna("");
         setDescripcion("");
-            
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Vacuna con ID: " + getIdVacuna() + " eliminada."));
+           
+        FacesMessage msg = new FacesMessage("Vacuna con ID " + getIdVacuna() + " eliminada.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null,
+               // new FacesMessage("Vacuna con ID: " + getIdVacuna() + " eliminada."));
     }
     
     
@@ -84,8 +88,10 @@ public class VacunaBean {
         Vacuna newVacuna = new Vacuna(getIdVacuna(), getNombreVacuna(), getDescripcion());
         VacunaController vacunaController = new VacunaController();
         vacunaController.updateVacuna(idVacuna, newVacuna);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Vacuna actualizada correctamente."));
+        FacesMessage msg = new FacesMessage("Vacuna actualizado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+               // new FacesMessage("Vacuna actualizada correctamente."));
     }
     
     /**

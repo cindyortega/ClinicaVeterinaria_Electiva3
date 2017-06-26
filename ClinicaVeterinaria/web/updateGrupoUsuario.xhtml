@@ -35,8 +35,8 @@
 
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarGrupo"
                                          action="#{grupoUsuarioBean.returnGrupoUsuarioByID()}"/>
-                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarGrupo"
-                                         action="#{grupoUsuarioBean.updateGrupoUsuario()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarGrupo" ajax ="false"
+                                         actionListener="#{grupoUsuarioBean.updateGrupoUsuario()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarGrupo"
                                          action="#{grupoUsuarioBean.limpiarDatos()}"/>
 

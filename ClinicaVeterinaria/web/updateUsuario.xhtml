@@ -48,8 +48,8 @@
                         <h:column />
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarUsuario"
                                          action="#{usuarioBean.returnUsuarioByID()}"/>
-                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarUsuario"
-                                         action="#{usuarioBean.updateUsuario()}"/> 
+                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgActualizarUsuario" ajax="false"
+                                         actionListener="#{usuarioBean.updateUsuario()}"/> 
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarUsuario"
                                          action="#{usuarioBean.limpiarDatos()}"/> <!--No limpia  porque no puede convertir-->
                     </h:panelGrid>

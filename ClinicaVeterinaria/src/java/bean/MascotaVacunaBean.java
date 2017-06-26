@@ -45,6 +45,8 @@ public class MascotaVacunaBean {
         MascotaVacuna mascotaVacuna = new MascotaVacuna (getId(), getMascota(), getMedicoVeterinario(), getVacuna(), getNombreVacuna(), getDetallesDosis(), getFechaAplicacion());
         MascotaVacunaController mascotaVacunaController = new MascotaVacunaController();
         mascotaVacunaController.addMascotaVacuna(mascotaVacuna);
+        FacesMessage msg = new FacesMessage("Vacuna de Mascota guardada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
     
@@ -97,9 +99,12 @@ public class MascotaVacunaBean {
         setNombreVacuna("");
         setDetallesDosis("");
         setFechaAplicacion(null);
+        
+        FacesMessage msg = new FacesMessage("Vacuna de Mascota con ID " + getId() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
             
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Vacuna de Mascota con ID: " + mascota.getIdMascota() + " eliminada."));
+        //FacesContext.getCurrentInstance().addMessage(null,
+                //new FacesMessage("Vacuna de Mascota con ID: " + mascota.getIdMascota() + " eliminada."));
     }
     
     
@@ -107,8 +112,10 @@ public class MascotaVacunaBean {
         MascotaVacuna newMascotaVacuna = new MascotaVacuna(getId(), getMascota(), getMedicoVeterinario(), getVacuna(), getNombreVacuna(), getDetallesDosis(), getFechaAplicacion());
         MascotaVacunaController mascotaVacunaController = new MascotaVacunaController();
         mascotaVacunaController.updateMascotaVacuna(mascota.getIdMascota(), newMascotaVacuna);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Vacuna de Mascota actualizada correctamente."));
+        FacesMessage msg = new FacesMessage("Vacuna de Mascota actualizada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+                //new FacesMessage("Vacuna de Mascota actualizada correctamente."));
     }
     
     /**

@@ -46,9 +46,13 @@ public class UsuarioBean {
             UsuarioController usuarioController = new UsuarioController();
             usuarioController.addUsuario(usuario);
             //mensaje de exito, si no es aca cortar y pegar donde corresponda
-            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso éxito.", "Datos guardados."));
+            //FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso éxito.", "Datos guardados."));
+            FacesMessage msg = new FacesMessage("Datos guardados.");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
         } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso error.", "Error."));
+            //FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso error.", "Error."));
+            FacesMessage msg = new FacesMessage("Error.");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
         }
     }
     
@@ -177,9 +181,11 @@ public class UsuarioBean {
         setUsuario("");
         setNombre("");
         setApellido("");
-            
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Usuario con ID: " + getIdUsuario() + " eliminado."));
+         
+        FacesMessage msg = new FacesMessage("Usuario con ID " + getIdUsuario() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null,
+                //new FacesMessage("Usuario con ID: " + getIdUsuario() + " eliminado."));
     }
     
     
@@ -187,8 +193,10 @@ public class UsuarioBean {
         Usuario newUsuario = new Usuario(getIdUsuario(), getGrupoUsuario(), getNombre(), getApellido(), getUsuario(), getPassword());
         UsuarioController usuarioController = new UsuarioController();
         usuarioController.updateUsuario(getIdUsuario(), newUsuario);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Usuario actualizado correctamente."));
+        FacesMessage msg = new FacesMessage("Usuario actualizado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+               // new FacesMessage("Usuario actualizado correctamente."));
     }
     
      /**

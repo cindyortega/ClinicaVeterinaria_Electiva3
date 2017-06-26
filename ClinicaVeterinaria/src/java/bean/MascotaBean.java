@@ -46,6 +46,8 @@ public class MascotaBean {
         Mascota mascota = new Mascota (getIdMascota(), getCliente(), getNombre(), getEspecie(), getRaza(), getSexo(), getColor(), getFechaNacimiento(), getNroFicha(), getMascotaVacunas(), getProxVacunas());
         MascotaController mascotaController = new MascotaController();
         mascotaController.addMascota(mascota);
+        FacesMessage msg = new FacesMessage("Mascota guardada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
     
@@ -106,8 +108,10 @@ public class MascotaBean {
         setFechaNacimiento(null);
         setNroFicha(0);
             
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Mascota con ID: " + getIdMascota() + " eliminada."));
+        FacesMessage msg = new FacesMessage("Mascota con ID " + getIdMascota() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null,
+              //  new FacesMessage("Mascota con ID: " + getIdMascota() + " eliminada."));
     }
     
     
@@ -115,8 +119,10 @@ public class MascotaBean {
         Mascota newMascota = new Mascota(getIdMascota(), getCliente(), getNombre(), getEspecie(), getRaza(), getSexo(), getColor(), getFechaNacimiento(), getNroFicha());
         MascotaController mascotaController = new MascotaController();
         mascotaController.updateMascota(getIdMascota(), newMascota);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Mascota actualizada correctamente."));
+        FacesMessage msg = new FacesMessage("Mascota actualizada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+               // new FacesMessage("Mascota actualizada correctamente."));
     }
     
     /**

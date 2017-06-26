@@ -47,8 +47,8 @@
 
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarUsuario"
                                          action="#{usuarioBean.returnUsuarioByID()}"/>
-                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarUsuario"
-                                         action="#{usuarioBean.deleteUsuario()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarUsuario" ajax ="false"
+                                         actionListener="#{usuarioBean.deleteUsuario()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarUsuario"
                                          action="#{usuarioBean.limpiarDatos()}"/> <!--No limpia  porque no puede convertir-->
                     </h:panelGrid>

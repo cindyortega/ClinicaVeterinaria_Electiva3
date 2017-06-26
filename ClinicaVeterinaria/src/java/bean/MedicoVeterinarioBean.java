@@ -39,6 +39,8 @@ public class MedicoVeterinarioBean {
         MedicoVeterinario medicoVeterinario = new MedicoVeterinario (getIdMedico(), getNombre(), getApellido(), getNroRegistro());
         MedicoVeterinarioController medicoVeterinarioController = new MedicoVeterinarioController();
         medicoVeterinarioController.addMedicoVeterinario(medicoVeterinario);
+        FacesMessage msg = new FacesMessage("Medico Veterinario guardado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
     
@@ -78,9 +80,11 @@ public class MedicoVeterinarioBean {
         setNombre("");
         setApellido("");
         setNroRegistro(0);
-            
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Médico Veterinario con ID: " + getIdMedico() + " eliminado."));
+          
+        FacesMessage msg = new FacesMessage("Medico Veterinario con ID " + getIdMedico() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null,
+               // new FacesMessage("Médico Veterinario con ID: " + getIdMedico() + " eliminado."));
     }
     
     
@@ -88,8 +92,10 @@ public class MedicoVeterinarioBean {
         MedicoVeterinario newMedicoVeterinario = new MedicoVeterinario(getIdMedico(), getNombre(), getApellido(),getNroRegistro());
         MedicoVeterinarioController medicoVeterinarioController = new MedicoVeterinarioController();
         medicoVeterinarioController.updateMedicoVeterinario(idMedico, newMedicoVeterinario);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Médico Veterinario actualizado correctamente."));
+        FacesMessage msg = new FacesMessage("Medico Veterinario actualizado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+               // new FacesMessage("Médico Veterinario actualizado correctamente."));
     }
     
     /**

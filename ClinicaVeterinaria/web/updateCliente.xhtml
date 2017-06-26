@@ -47,8 +47,8 @@
 
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgUpdateCliente"
                                          action="#{clienteBean.returnClienteByID()}"/>
-                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgUpdateCliente"
-                                         action="#{clienteBean.updateCliente()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Actualizar" update="pgUpdateCliente" ajax ="false"
+                                         actionListener="#{clienteBean.updateCliente()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgUpdateCliente"
                                              action="#{clienteBean.limpiarDatos()}"/>
                     </h:panelGrid>

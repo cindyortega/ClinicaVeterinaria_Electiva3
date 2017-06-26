@@ -37,6 +37,8 @@ public class GrupoUsuarioBean {
         GrupoUsuario grupoUsuario = new GrupoUsuario (getIdGrupo(), getNombreGrupo());
         GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
         grupoUsuarioController.addGrupoUsuario(grupoUsuario);
+        FacesMessage msg = new FacesMessage("Grupo Usuario guardado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
     
@@ -67,9 +69,12 @@ public class GrupoUsuarioBean {
         GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
         grupoUsuarioController.deleteGrupoUsuario(getIdGrupo());
         setNombreGrupo("");
+        
+        FacesMessage msg = new FacesMessage("Grupo Usuario con ID " + getIdGrupo() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
             
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Grupo de Usuario con ID: " + getIdGrupo() + " eliminado."));
+        //FacesContext.getCurrentInstance().addMessage(null,
+               // new FacesMessage("Grupo de Usuario con ID: " + getIdGrupo() + " eliminado."));
     }
     
     
@@ -77,8 +82,10 @@ public class GrupoUsuarioBean {
         GrupoUsuario newGrupoUsuario = new GrupoUsuario(getIdGrupo(), getNombreGrupo());
         GrupoUsuarioController grupoUsuarioController = new GrupoUsuarioController();
         grupoUsuarioController.updateGrupoUsuario(getIdGrupo(), newGrupoUsuario);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Grupo de Usuario actualizado correctamente."));
+        FacesMessage msg = new FacesMessage("Grupo Usuario actualizado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+                //new FacesMessage("Grupo de Usuario actualizado correctamente."));
     }
     
     /**

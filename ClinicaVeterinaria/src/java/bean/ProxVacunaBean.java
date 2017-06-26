@@ -39,6 +39,8 @@ public class ProxVacunaBean {
         ProxVacuna proxVacuna = new ProxVacuna (getIdProxVacuna(), getMascota(), getFechaProxVacuna(), getNombreVacuna(), getDetalles());
         ProxVacunaController proxVacunaController = new ProxVacunaController();
         proxVacunaController.addProxVacuna(proxVacuna);
+        FacesMessage msg = new FacesMessage("Proxima vacuna guardada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
     
@@ -82,9 +84,11 @@ public class ProxVacunaBean {
         setFechaProxVacuna(null);
         setNombreVacuna("");
         setDetalles("");
-            
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage("Proxima Vacuna con ID: " + getIdProxVacuna() + " eliminada."));
+         
+        FacesMessage msg = new FacesMessage("Proxima Vacuna con ID " + getIdProxVacuna() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null,
+               // new FacesMessage("Proxima Vacuna con ID: " + getIdProxVacuna() + " eliminada."));
     }
     
     
@@ -92,8 +96,10 @@ public class ProxVacunaBean {
         ProxVacuna newProxVacuna = new ProxVacuna(getIdProxVacuna(), getMascota(), getFechaProxVacuna(), getNombreVacuna(), getDetalles());
         ProxVacunaController proxVacunaController = new ProxVacunaController();
         proxVacunaController.updateProxVacuna(mascota.getIdMascota(), newProxVacuna);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Próxima Vacuna de Mascota actualizada correctamente."));
+        FacesMessage msg = new FacesMessage("Proxima Vacuna de Mascota actualizada correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+                //new FacesMessage("Próxima Vacuna de Mascota actualizada correctamente."));
     }
     
     /**

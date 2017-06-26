@@ -35,8 +35,8 @@
 
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarGrupo"
                                          action="#{grupoUsuarioBean.returnGrupoUsuarioByID()}"/>
-                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarGrupo"
-                                         action="#{grupoUsuarioBean.deleteGrupoUsuario()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarGrupo" ajax ="false"
+                                         actionListener="#{grupoUsuarioBean.deleteGrupoUsuario()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarGrupo"
                                          action="#{grupoUsuarioBean.limpiarDatos()}"/>
 

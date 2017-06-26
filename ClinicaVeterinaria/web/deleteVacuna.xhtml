@@ -39,8 +39,8 @@
 
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarVacuna"
                                          action="#{vacunaBean.returnVacunaByID()}"/>
-                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarVacuna"
-                                         action="#{vacunaBean.deleteVacuna()}"/>
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarVacuna" ajax ="false"
+                                         actionListener="#{vacunaBean.deleteVacuna()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarVacuna"
                                          action="#{vacunaBean.limpiarDatos()}"/>
                     </h:panelGrid>

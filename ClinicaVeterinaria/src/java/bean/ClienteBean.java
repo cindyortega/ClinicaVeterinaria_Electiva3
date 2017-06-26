@@ -41,6 +41,8 @@ public class ClienteBean {
         Cliente cliente = new Cliente (getIdCliente(), getNombre(), getTelefono(), getDireccion(), getEmail());
         ClienteController clienteController = new ClienteController();
         clienteController.addCliente(cliente);
+        FacesMessage msg = new FacesMessage("Cliente guardado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
         
         /* en otro tutorial esta asi:
         ClienteController clienteController = new ClienteController();
@@ -90,9 +92,11 @@ public class ClienteBean {
         setTelefono("");
         setDireccion("");
         setEmail("");
-            
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Cliente con ID " + getIdCliente() + " eliminado."));
+        
+        FacesMessage msg = new FacesMessage("Cliente con ID " + getIdCliente() + " eliminado.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+       // FacesContext.getCurrentInstance().addMessage(null, 
+              //  new FacesMessage("Cliente con ID " + getIdCliente() + " eliminado."));
     }
     
     
@@ -100,8 +104,11 @@ public class ClienteBean {
         Cliente newCliente = new Cliente(getIdCliente(), getNombre(), getTelefono(), getDireccion(), getEmail());
         ClienteController clienteController = new ClienteController();
         clienteController.updateCliente(getIdCliente(), newCliente);
-        FacesContext.getCurrentInstance().addMessage(null, 
-                new FacesMessage("Cliente actualizado correctamente."));
+        
+        FacesMessage msg = new FacesMessage("Cliente actualizado correctamente.");
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        //FacesContext.getCurrentInstance().addMessage(null, 
+               // new FacesMessage("Cliente actualizado correctamente."));
     }
     
     /**

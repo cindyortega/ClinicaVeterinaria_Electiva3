@@ -55,8 +55,8 @@
 
                         <p:commandButton icon="ui-icon-search" value="Buscar" update="pgActualizarMascotaVacuna"
                                          action="#{mascotaVacunaBean.returnMascotaVacunaByID()}"/>
-                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarMascotaVacuna"
-                                         action="#{mascotaVacunaBean.updateMascotaVacuna()}"/>
+                        <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarMascotaVacuna" ajax="false"
+                                         actionListener="#{mascotaVacunaBean.updateMascotaVacuna()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgActualizarMascotaVacuna"
                                          action="#{mascotaVacunaBean.limpiarDatos()}"/> <!--No limpia porque no puede convertir-->
                     </h:panelGrid>

@@ -43,7 +43,7 @@
 
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarMedico"
                                          action="#{medicoVeterinarioBean.returnMedicoVeterinarioByID()}"/>
-                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarMedico"
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarMedico" ajax ="false"
                                          actionListener="#{medicoVeterinarioBean.deleteMedicoVeterinario()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarMedico"
                                          actionListener="#{medicoVeterinarioBean.limpiarDatos()}"/>

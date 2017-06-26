@@ -47,7 +47,7 @@
 
                         <p:commandButton icon="ui-icon-search" value="Consultar" update="pgEliminarProxVacuna"
                                          action="#{proxVacunaBean.returnProxVacunaByID()}"/>
-                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarProxVacuna"
+                        <p:commandButton icon="ui-icon-trash" value="Eliminar" update="pgEliminarProxVacuna" ajax="false"
                                          action="#{proxVacunaBean.deleteProxVacuna()}"/>
                         <p:commandButton icon="ui-icon-check" value="Limpiar" update="pgEliminarProxVacuna"
                                          action="#{proxVacunaBean.limpiarDatos()}"/><!--No limpia porque no puede convertir-->
